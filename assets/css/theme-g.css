@@ -515,6 +515,16 @@ html[data-theme="G"] .product__link {
   border-bottom-color: var(--copper-hair);
 }
 html[data-theme="G"] .product__link:hover { color: var(--sirius); border-bottom-color: var(--sirius); }
+
+html[data-theme="G"] .product__tags span {
+  background: var(--paper-soft);
+  border-color: var(--rule);
+  color: var(--ink-soft);
+}
+html[data-theme="G"] .product:hover .product__tags span {
+  border-color: var(--copper-hair);
+  color: var(--ink);
+}
 html[data-theme="G"] .products__note {
   color: var(--ink);
   font-family: var(--font-display);

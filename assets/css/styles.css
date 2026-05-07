@@ -1078,6 +1078,26 @@ section { padding-block: var(--section-pad); position: relative; }
 .product__link:hover { color: var(--copper); border-bottom-color: var(--copper); gap: 0.95rem; }
 .product__link:hover svg { transform: translateX(3px); }
 
+.product__tags {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+}
+.product__tags span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  padding: 0.32rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  background: var(--paper-soft);
+  transition: border-color 180ms var(--ease),
+              color 180ms var(--ease);
+}
+.product:hover .product__tags span { border-color: var(--rule-strong); color: var(--ink); }
+
 .products__note {
   margin-top: clamp(2.5rem, 4.5vh, 3.5rem);
   font-family: var(--font-display);
