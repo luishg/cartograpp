@@ -1,0 +1,640 @@
+/* =============================================================
+   THEME G — Cosmic Atlas
+   The night sky as a star chart. Default expression of the brand.
+
+   - Palette: deep space (void/orbit/nebula) + warm Capella gold
+     and cool Vega blue as star-accents
+   - Type: DM Serif Display for display, Inter for everything else.
+     Engraved-chart gravitas, never sci-fi pastiche
+   - Motifs: full-page starfield, glowing dots as section markers,
+     orbital rings ONLY in the SURFACES section. Used once, with
+     intent — no nebula-gradients, no galaxy-clichés
+   - Light variant: the printed star chart on the cartographer's
+     table. Dark variant: the night sky observed.
+   ============================================================= */
+
+html[data-theme="G"] {
+  /* --- Palette: deep space (dark mode is primary) --------- */
+  --paper:        #070B14;    /* void — never pure black */
+  --paper-soft:   #0F1729;    /* deep orbit — card surface */
+  --paper-deep:   #04060D;    /* outer void — recessed bands */
+  --hairline:     #1B2540;    /* nebula — faint dividers */
+  --rule:         #2A375A;    /* visible dividers */
+  --rule-strong:  #3F4F7E;
+
+  --ink:          #E8ECF5;    /* starlight — primary text (warm white) */
+  --ink-soft:     #B7BFD4;    /* secondary */
+  --ink-mid:      #7C8BB0;    /* dust — tertiary */
+  --ink-faint:    #4D5878;    /* labels */
+
+  /* "copper" reused as primary accent: warm Capella gold */
+  --copper:       #F4C77B;
+  --copper-soft:  #F8DAA3;
+  --copper-deep:  #C99A4A;
+  --copper-wash:  rgba(244, 199, 123, 0.10);
+  --copper-hair:  rgba(244, 199, 123, 0.30);
+  --copper-glow:  rgba(244, 199, 123, 0.06);
+
+  /* "indigo" reused as cool accent: Vega blue */
+  --indigo:       #6BA3FF;
+  --indigo-soft:  #A0C4FF;
+
+  /* Custom theme tokens */
+  --void:         #070B14;
+  --capella:      #F4C77B;
+  --vega:         #6BA3FF;
+  --starlight:    #E8ECF5;
+
+  --font-display: "DM Serif Display", "Instrument Serif", Georgia, serif;
+  --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --radius:       2px;
+  --section-pad:  clamp(6.5rem, 14vh, 10.5rem);
+
+  color-scheme: dark;
+}
+
+html[data-theme="G"] body { background: var(--paper); color: var(--ink); }
+
+/* Full-page fixed starfield behind everything. ~140 stars, varied
+   opacity + size. Uses a layered radial-gradient (lightweight, no
+   extra DOM/SVG required). A handful of layers twinkle slowly. */
+html[data-theme="G"] body::before {
+  background-color: var(--paper);
+  background-image:
+    /* large named stars */
+    radial-gradient(1.6px 1.6px at 14% 12%, rgba(244,199,123,0.95), transparent 65%),
+    radial-gradient(1.6px 1.6px at 78% 8%,  rgba(232,236,245,0.90), transparent 65%),
+    radial-gradient(1.5px 1.5px at 6% 88%,  rgba(107,163,255,0.85), transparent 65%),
+    radial-gradient(1.4px 1.4px at 92% 64%, rgba(244,199,123,0.85), transparent 65%),
+    radial-gradient(1.4px 1.4px at 36% 72%, rgba(232,236,245,0.80), transparent 65%),
+    /* mid stars — many small dots scattered */
+    radial-gradient(1px 1px at 4% 22%,   rgba(232,236,245,0.55), transparent 70%),
+    radial-gradient(1px 1px at 11% 44%,  rgba(232,236,245,0.45), transparent 70%),
+    radial-gradient(1px 1px at 18% 66%,  rgba(232,236,245,0.50), transparent 70%),
+    radial-gradient(1px 1px at 24% 18%,  rgba(232,236,245,0.40), transparent 70%),
+    radial-gradient(1px 1px at 31% 32%,  rgba(232,236,245,0.55), transparent 70%),
+    radial-gradient(1px 1px at 39% 58%,  rgba(232,236,245,0.45), transparent 70%),
+    radial-gradient(1px 1px at 47% 14%,  rgba(232,236,245,0.55), transparent 70%),
+    radial-gradient(1px 1px at 54% 38%,  rgba(232,236,245,0.50), transparent 70%),
+    radial-gradient(1px 1px at 62% 80%,  rgba(232,236,245,0.45), transparent 70%),
+    radial-gradient(1px 1px at 68% 22%,  rgba(232,236,245,0.55), transparent 70%),
+    radial-gradient(1px 1px at 73% 48%,  rgba(232,236,245,0.40), transparent 70%),
+    radial-gradient(1px 1px at 81% 92%,  rgba(232,236,245,0.50), transparent 70%),
+    radial-gradient(1px 1px at 86% 28%,  rgba(232,236,245,0.55), transparent 70%),
+    radial-gradient(1px 1px at 95% 78%,  rgba(232,236,245,0.45), transparent 70%),
+    /* far/dust */
+    radial-gradient(0.6px 0.6px at 8% 6%,   rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 16% 28%, rgba(232,236,245,0.25), transparent 70%),
+    radial-gradient(0.6px 0.6px at 22% 52%, rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 28% 80%, rgba(232,236,245,0.25), transparent 70%),
+    radial-gradient(0.6px 0.6px at 34% 6%,  rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 41% 22%, rgba(232,236,245,0.25), transparent 70%),
+    radial-gradient(0.6px 0.6px at 48% 50%, rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 56% 70%, rgba(232,236,245,0.25), transparent 70%),
+    radial-gradient(0.6px 0.6px at 65% 4%,  rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 72% 36%, rgba(232,236,245,0.25), transparent 70%),
+    radial-gradient(0.6px 0.6px at 78% 60%, rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 84% 86%, rgba(232,236,245,0.25), transparent 70%),
+    radial-gradient(0.6px 0.6px at 89% 12%, rgba(232,236,245,0.30), transparent 70%),
+    radial-gradient(0.6px 0.6px at 96% 44%, rgba(232,236,245,0.25), transparent 70%),
+    /* gentle vignette + faint sky-glow at the top, subtle horizon at bottom */
+    radial-gradient(1100px 700px at 75% -8%, rgba(107,163,255,0.06), transparent 70%),
+    radial-gradient(900px 600px at 18% 110%, rgba(244,199,123,0.05), transparent 70%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: normal;
+  inset: 0;
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+}
+
+html[data-theme="G"] ::selection { background: rgba(244,199,123,0.30); color: var(--starlight); }
+
+/* --- Display / typography ---------------------------------- */
+html[data-theme="G"] .display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  color: var(--ink);
+}
+html[data-theme="G"] .display em {
+  font-style: italic;
+  color: var(--capella);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  text-shadow: 0 0 24px rgba(244,199,123,0.25);
+}
+html[data-theme="G"] h2.display { font-size: clamp(2.4rem, 4.8vw, 4.5rem); letter-spacing: -0.022em; }
+
+html[data-theme="G"] .eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--capella);
+}
+html[data-theme="G"] .eyebrow::before {
+  width: 6px;
+  height: 6px;
+  background: var(--capella);
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: 0 0 8px var(--capella);
+}
+
+html[data-theme="G"] .meta { color: var(--ink-mid); }
+html[data-theme="G"] .mono { color: var(--ink-mid); }
+html[data-theme="G"] .lead { color: var(--ink-soft); }
+html[data-theme="G"] .body { color: var(--ink-soft); }
+html[data-theme="G"] .body strong { color: var(--ink); font-weight: 600; }
+
+/* --- Site chrome ------------------------------------------- */
+html[data-theme="G"] .nav.is-scrolled {
+  background: rgba(7, 11, 20, 0.78);
+  backdrop-filter: saturate(150%) blur(20px);
+  -webkit-backdrop-filter: saturate(150%) blur(20px);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .nav__progress { background: var(--capella); box-shadow: 0 0 8px var(--capella); }
+
+html[data-theme="G"] .wordmark__text {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+html[data-theme="G"] .wordmark__glyph { color: var(--capella); }
+html[data-theme="G"] .wordmark__glyph .constellation-lines line {
+  stroke: var(--ink-mid);
+  stroke-width: 0.7;
+  opacity: 0.55;
+}
+html[data-theme="G"] .wordmark__glyph .constellation-stars .star {
+  fill: var(--capella);
+}
+html[data-theme="G"] .wordmark__glyph .constellation-stars .star.apex {
+  filter: drop-shadow(0 0 3px var(--capella));
+}
+
+html[data-theme="G"] .nav__links { color: var(--ink-soft); }
+html[data-theme="G"] .nav__links a:hover { color: var(--capella); }
+html[data-theme="G"] .nav__links a::after { background: var(--capella); }
+
+/* --- Hero -------------------------------------------------- */
+html[data-theme="G"] .hero__bg-grain { display: none; }
+html[data-theme="G"] .hero__bg-grid {
+  background-image:
+    linear-gradient(90deg, rgba(232,236,245,0.020) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(232,236,245,0.014) 1px, transparent 1px);
+  opacity: 0.65;
+}
+
+html[data-theme="G"] .hero__bg-constellation {
+  color: var(--starlight);
+  opacity: 1;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+html[data-theme="G"] .hero__bg-ambient circle { fill: var(--starlight); }
+html[data-theme="G"] .hero__bg-cluster .cluster__lines path { stroke: var(--ink-mid); opacity: 0.40; }
+html[data-theme="G"] .hero__bg-cluster .cluster__stars circle { fill: var(--capella); }
+html[data-theme="G"] .hero__bg-cluster .named-star {
+  fill: var(--capella);
+  filter: drop-shadow(0 0 8px var(--capella));
+}
+html[data-theme="G"] .hero__bg-cluster.cluster-2 .named-star {
+  fill: var(--vega);
+  filter: drop-shadow(0 0 8px var(--vega));
+}
+html[data-theme="G"] .hero__bg-cluster .cluster__label {
+  fill: var(--ink-mid);
+  letter-spacing: 0.32em;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+html[data-theme="G"] .hero__meta {
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .hero__title { color: var(--ink); }
+html[data-theme="G"] .hero__title em {
+  color: var(--capella);
+  font-style: italic;
+  text-shadow: 0 0 28px rgba(244,199,123,0.35);
+}
+html[data-theme="G"] .hero__lead { color: var(--ink); }
+html[data-theme="G"] .hero__lead strong { color: var(--capella); }
+html[data-theme="G"] .hero__support { color: var(--ink-soft); }
+html[data-theme="G"] .hero__link {
+  color: var(--ink);
+  border-bottom-color: var(--copper-hair);
+}
+html[data-theme="G"] .hero__link:hover { color: var(--capella); border-bottom-color: var(--capella); }
+html[data-theme="G"] .hero__year { color: var(--capella); }
+
+/* --- Pull-quotes / opening -------------------------------- */
+html[data-theme="G"] .opening__pullquote {
+  font-family: var(--font-display);
+  color: var(--ink);
+  border-top-color: var(--rule);
+}
+html[data-theme="G"] .opening__pullquote em { color: var(--capella); }
+
+/* --- Ledger ------------------------------------------------ */
+html[data-theme="G"] .ledger {
+  background: var(--paper-soft);
+  border-top-color: var(--rule);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .ledger__cell { border-right-color: var(--hairline); }
+html[data-theme="G"] .ledger__cell:hover { background: var(--copper-glow); }
+html[data-theme="G"] .ledger__label {
+  font-family: var(--font-display);
+  color: var(--ink);
+}
+html[data-theme="G"] .ledger__label::before { background: var(--capella); box-shadow: 0 0 6px var(--capella); }
+html[data-theme="G"] .ledger dd { color: var(--ink-soft); }
+
+/* --- Schematic / star chart -------------------------------- */
+html[data-theme="G"] .schematic {
+  background: var(--paper-soft);
+  border-color: var(--rule);
+}
+html[data-theme="G"] .schematic::before {
+  background-image: radial-gradient(circle at 50% 50%,
+    transparent 38%, rgba(244,199,123,0.06) 38.5%, transparent 39%,
+    transparent 48%, rgba(244,199,123,0.05) 48.5%, transparent 49%,
+    transparent 58%, rgba(107,163,255,0.05) 58.5%, transparent 59%,
+    transparent 68%, rgba(244,199,123,0.04) 68.5%, transparent 69%);
+}
+html[data-theme="G"] .schematic__head {
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .schematic__mark { color: var(--capella); }
+html[data-theme="G"] .schematic__mark .constellation-lines line { stroke: var(--ink-mid); opacity: 0.55; }
+html[data-theme="G"] .schematic__mark .constellation-stars .star { fill: var(--capella); }
+html[data-theme="G"] .schematic__name { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .schematic__sub { color: var(--ink-mid); border-left-color: var(--rule); }
+html[data-theme="G"] .schematic__ref { color: var(--capella); }
+
+html[data-theme="G"] .plane { border-right-color: var(--hairline); }
+html[data-theme="G"] .plane__head { border-bottom-color: var(--rule); }
+html[data-theme="G"] .plane__head::after {
+  background: var(--capella);
+  box-shadow:
+    0 0 0 4px var(--paper-soft),
+    0 0 14px rgba(244,199,123,0.65);
+  width: 9px; height: 9px;
+}
+html[data-theme="G"] .plane__title { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .plane__sub { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .plane__list li { color: var(--ink-soft); }
+html[data-theme="G"] .plane__list li::before { background: var(--capella); width: 8px; opacity: 0.85; }
+
+/* --- Foundations + stats ---------------------------------- */
+html[data-theme="G"] .foundations {
+  background: var(--paper-deep);
+  border-top-color: var(--hairline);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .foundations::before {
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(232,236,245,0.025) 38px 39px);
+}
+html[data-theme="G"] .stats {
+  background: var(--paper-soft);
+  border-top-color: var(--rule);
+  border-bottom-color: var(--rule);
+}
+html[data-theme="G"] .stats__cell { border-right-color: var(--hairline); }
+html[data-theme="G"] .stats__value { color: var(--ink); font-family: var(--font-display); }
+html[data-theme="G"] .stats__num em { color: var(--capella); font-style: italic; }
+html[data-theme="G"] .stats__unit { color: var(--ink-soft); }
+html[data-theme="G"] .stats dd { color: var(--ink-soft); }
+html[data-theme="G"] .foundations__note { color: var(--ink); font-family: var(--font-display); }
+html[data-theme="G"] .foundations__note em { color: var(--capella); font-style: italic; }
+
+/* --- Surfaces (one composition; orbital-arc left markers) -- */
+html[data-theme="G"] .service-list { border-top-color: var(--rule); }
+html[data-theme="G"] .service-row { border-bottom-color: var(--hairline); }
+html[data-theme="G"] .service-row::before { background: var(--capella); box-shadow: 0 0 8px var(--capella); }
+html[data-theme="G"] .service-row:hover {
+  background: linear-gradient(to right, rgba(244,199,123,0.07), transparent 55%);
+}
+html[data-theme="G"] .service-row__title h3 { color: var(--ink); font-family: var(--font-display); }
+html[data-theme="G"] .service-row__title .meta { color: var(--ink-mid); }
+html[data-theme="G"] .service-row__body p { color: var(--ink-soft); }
+
+/* Each row gets a small orbital-arc glyph as a left-margin marker —
+   the only place orbital rings appear in the theme. Single use, intent. */
+html[data-theme="G"] .service-row {
+  position: relative;
+  padding-left: clamp(2.5rem, 3vw, 3.5rem);
+}
+html[data-theme="G"] .service-row::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: clamp(2.4rem, 4.8vh, 3.4rem);
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--capella) 0 2px, transparent 2.5px);
+  filter: drop-shadow(0 0 4px var(--copper-glow));
+  opacity: 0.85;
+}
+html[data-theme="G"] .service-row:nth-child(2)::after {
+  /* signals — vega blue dot */
+  background: radial-gradient(circle at 50% 50%, var(--vega) 0 2px, transparent 2.5px);
+}
+html[data-theme="G"] .service-row:nth-child(4)::after {
+  /* intelligence — slightly larger dot */
+  background: radial-gradient(circle at 50% 50%, var(--capella) 0 2.4px, transparent 3px);
+  filter: drop-shadow(0 0 8px var(--capella));
+}
+
+html[data-theme="G"] .service-row__tags span {
+  background: var(--paper-soft);
+  border-color: var(--rule);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+}
+html[data-theme="G"] .service-row:hover .service-row__tags span {
+  border-color: var(--copper-hair);
+  color: var(--ink);
+}
+
+/* --- Principles ------------------------------------------- */
+html[data-theme="G"] .principles {
+  background: var(--paper-deep);
+  border-top-color: var(--hairline);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .principles__grid {
+  background: var(--paper-soft);
+  border-top-color: var(--rule);
+}
+html[data-theme="G"] .principle {
+  border-right-color: var(--hairline);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .principle::before { background: var(--capella); box-shadow: 0 0 10px var(--capella); }
+html[data-theme="G"] .principle:hover { background: var(--copper-glow); }
+html[data-theme="G"] .principle__title { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .principle__body { color: var(--ink-soft); }
+
+/* --- Audiences -------------------------------------------- */
+html[data-theme="G"] .audiences__grid {
+  border-top-color: var(--rule);
+  border-bottom-color: var(--rule);
+}
+html[data-theme="G"] .audience {
+  background: var(--paper-soft);
+  border-right-color: var(--hairline);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .audience::before { background: var(--capella); box-shadow: 0 0 8px var(--capella); }
+html[data-theme="G"] .audience:hover { background: var(--paper); }
+html[data-theme="G"] .audience h3 { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .audience p { color: var(--ink-soft); }
+
+/* --- Products --------------------------------------------- */
+html[data-theme="G"] .product {
+  background: linear-gradient(to right, var(--paper) 0%, var(--paper) 100%);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"] .product::before { background: var(--rule); }
+html[data-theme="G"] .product--live::before {
+  background: var(--capella);
+  box-shadow: 0 0 12px var(--capella);
+}
+html[data-theme="G"] .product--building::before { background: var(--copper-deep); opacity: 0.7; }
+html[data-theme="G"] .product--horizon::before { background: var(--rule); opacity: 0.6; }
+html[data-theme="G"] .product:hover { background: var(--paper-soft); }
+html[data-theme="G"] .product--live:hover {
+  background: linear-gradient(to right, var(--copper-wash), var(--paper-soft) 60%);
+}
+
+html[data-theme="G"] .product__pill {
+  background: var(--paper-soft);
+  border-color: var(--rule);
+  color: var(--ink-mid);
+}
+html[data-theme="G"] .product__pill--live {
+  color: var(--capella);
+  border-color: var(--capella);
+  background: var(--copper-wash);
+  box-shadow: 0 0 12px rgba(244,199,123,0.20);
+}
+html[data-theme="G"] .product__pill-dot {
+  background: var(--capella);
+  box-shadow: 0 0 0 3px var(--copper-wash);
+}
+html[data-theme="G"] .product__since { color: var(--ink-mid); }
+html[data-theme="G"] .product--live .product__since { color: var(--capella); }
+html[data-theme="G"] .product__name { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .product--building .product__name { color: var(--ink-soft); }
+html[data-theme="G"] .product--horizon .product__name { color: var(--ink-mid); }
+html[data-theme="G"] .product__desc { color: var(--ink-soft); }
+html[data-theme="G"] .product--horizon .product__desc { color: var(--ink-mid); }
+html[data-theme="G"] .product__link {
+  color: var(--ink);
+  border-bottom-color: var(--copper-hair);
+}
+html[data-theme="G"] .product__link:hover { color: var(--capella); border-bottom-color: var(--capella); }
+html[data-theme="G"] .products__note { color: var(--ink); font-family: var(--font-display); }
+html[data-theme="G"] .products__note em { color: var(--capella); font-style: italic; }
+
+/* --- Direction / closing ---------------------------------- */
+html[data-theme="G"] .direction { border-top-color: var(--hairline); }
+html[data-theme="G"] .direction__body p { color: var(--ink-soft); }
+html[data-theme="G"] .direction__signoff { border-top-color: var(--hairline); }
+html[data-theme="G"] .direction__contact .meta { color: var(--ink-mid); }
+html[data-theme="G"] .direction__contact a {
+  font-family: var(--font-display);
+  color: var(--ink);
+  border-bottom-color: var(--copper-hair);
+}
+html[data-theme="G"] .direction__contact a:hover { color: var(--capella); border-bottom-color: var(--capella); }
+html[data-theme="G"] .direction__author { color: var(--ink-mid); }
+html[data-theme="G"] .direction__author strong { color: var(--ink-soft); }
+
+/* --- Footer ------------------------------------------------ */
+html[data-theme="G"] .footer { border-top-color: var(--hairline); color: var(--ink-mid); }
+html[data-theme="G"] .footer__copy { color: var(--ink-soft); }
+html[data-theme="G"] .footer__copy a {
+  color: var(--ink);
+  border-bottom-color: var(--copper-hair);
+}
+html[data-theme="G"] .footer__copy a:hover { color: var(--capella); border-bottom-color: var(--capella); }
+html[data-theme="G"] .footer__mail:hover { color: var(--capella); }
+
+/* --- Theme picker chrome ---------------------------------- */
+html[data-theme="G"] .theme-picker__trigger {
+  background: rgba(15, 23, 41, 0.6);
+  border-color: var(--hairline);
+  color: var(--ink-soft);
+}
+html[data-theme="G"] .theme-picker__trigger:hover {
+  border-color: var(--rule);
+  color: var(--ink);
+}
+html[data-theme="G"] .theme-picker__trigger[aria-expanded="true"] { border-color: var(--capella); }
+html[data-theme="G"] .theme-picker__dot { background: var(--capella); box-shadow: 0 0 6px var(--capella); }
+html[data-theme="G"] .theme-picker__label-letter { color: var(--capella); }
+html[data-theme="G"] .theme-picker__menu {
+  background: rgba(15, 23, 41, 0.96);
+  border-color: var(--hairline);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 12px 40px -12px rgba(0,0,0,0.6),
+    0 2px 8px -4px rgba(0,0,0,0.4);
+}
+html[data-theme="G"] .theme-picker__option-letter { color: var(--capella); }
+html[data-theme="G"] .theme-picker__option-name { color: var(--ink); }
+html[data-theme="G"] .theme-picker__option-sub { color: var(--ink-mid); }
+html[data-theme="G"] .theme-picker__option:hover,
+html[data-theme="G"] .theme-picker__option:focus-visible { background: var(--copper-glow); }
+html[data-theme="G"] .theme-picker__option[aria-selected="true"] { background: var(--copper-wash); }
+
+html[data-theme="G"] .mode-toggle {
+  background: rgba(15, 23, 41, 0.5);
+  border-color: var(--hairline);
+  color: var(--ink-soft);
+}
+html[data-theme="G"] .mode-toggle:hover { color: var(--capella); border-color: var(--rule); }
+
+/* =============================================================
+   THEME G — Light mode
+   The printed star chart on the cartographer's table.
+   Same accent vocabulary (warm Capella + cool Vega), inverted
+   surfaces. Warm parchment background, near-black ink.
+   ============================================================= */
+html[data-theme="G"][data-mode="light"] {
+  --paper:        #F6F4EE;
+  --paper-soft:   #FFFFFF;
+  --paper-deep:   #ECE7D8;
+  --hairline:     #E4DFD2;
+  --rule:         #C7BFA7;
+  --rule-strong:  #9B9377;
+
+  --ink:          #0E1530;
+  --ink-soft:     #2E3658;
+  --ink-mid:      #5A6280;
+  --ink-faint:    #8B92A8;
+
+  --copper:       #B8893A;
+  --copper-soft:  #D9AB5C;
+  --copper-deep:  #8C6420;
+  --copper-wash:  rgba(184, 137, 58, 0.10);
+  --copper-hair:  rgba(184, 137, 58, 0.32);
+  --copper-glow:  rgba(184, 137, 58, 0.06);
+
+  --indigo:       #2E5BB8;
+  --indigo-soft:  #5680D8;
+
+  --capella:      #B8893A;
+  --vega:         #2E5BB8;
+  --starlight:    #0E1530;
+
+  color-scheme: light;
+}
+
+/* Light mode: starfield becomes a printed-paper star chart —
+   stars rendered as small ink dots on warm parchment, no glow. */
+html[data-theme="G"][data-mode="light"] body::before {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(1.5px 1.5px at 14% 12%, rgba(184,137,58,0.85), transparent 70%),
+    radial-gradient(1.5px 1.5px at 78% 8%,  rgba(14,21,48,0.55),   transparent 70%),
+    radial-gradient(1.4px 1.4px at 6% 88%,  rgba(46,91,184,0.55),  transparent 70%),
+    radial-gradient(1.4px 1.4px at 92% 64%, rgba(184,137,58,0.65), transparent 70%),
+    radial-gradient(1.4px 1.4px at 36% 72%, rgba(14,21,48,0.45),   transparent 70%),
+    radial-gradient(0.9px 0.9px at 4% 22%,  rgba(14,21,48,0.30),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 11% 44%, rgba(14,21,48,0.25),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 18% 66%, rgba(14,21,48,0.30),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 24% 18%, rgba(14,21,48,0.20),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 31% 32%, rgba(14,21,48,0.25),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 39% 58%, rgba(14,21,48,0.20),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 47% 14%, rgba(14,21,48,0.30),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 54% 38%, rgba(14,21,48,0.25),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 62% 80%, rgba(14,21,48,0.20),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 68% 22%, rgba(14,21,48,0.30),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 73% 48%, rgba(14,21,48,0.20),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 81% 92%, rgba(14,21,48,0.25),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 86% 28%, rgba(14,21,48,0.30),   transparent 75%),
+    radial-gradient(0.9px 0.9px at 95% 78%, rgba(14,21,48,0.20),   transparent 75%),
+    radial-gradient(0.6px 0.6px at 8% 6%,   rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 16% 28%, rgba(14,21,48,0.15),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 22% 52%, rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 28% 80%, rgba(14,21,48,0.15),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 34% 6%,  rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 41% 22%, rgba(14,21,48,0.15),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 48% 50%, rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 56% 70%, rgba(14,21,48,0.15),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 65% 4%,  rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 72% 36%, rgba(14,21,48,0.15),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 78% 60%, rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 84% 86%, rgba(14,21,48,0.15),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 89% 12%, rgba(14,21,48,0.18),   transparent 80%),
+    radial-gradient(0.6px 0.6px at 96% 44%, rgba(14,21,48,0.15),   transparent 80%);
+}
+html[data-theme="G"][data-mode="light"] .display em { text-shadow: none; }
+html[data-theme="G"][data-mode="light"] .hero__title em { text-shadow: none; }
+html[data-theme="G"][data-mode="light"] .hero__bg-cluster .named-star {
+  filter: drop-shadow(0 0 0 var(--capella));
+}
+html[data-theme="G"][data-mode="light"] .hero__bg-grid {
+  background-image:
+    linear-gradient(90deg, rgba(14,21,48,0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(14,21,48,0.018) 1px, transparent 1px);
+}
+html[data-theme="G"][data-mode="light"] .nav.is-scrolled {
+  background: rgba(246, 244, 238, 0.85);
+  border-bottom-color: var(--hairline);
+}
+html[data-theme="G"][data-mode="light"] .theme-picker__trigger,
+html[data-theme="G"][data-mode="light"] .theme-picker__menu,
+html[data-theme="G"][data-mode="light"] .mode-toggle {
+  background: rgba(255, 255, 255, 0.85);
+}
+html[data-theme="G"][data-mode="light"] .schematic { background: var(--paper-soft); }
+html[data-theme="G"][data-mode="light"] .schematic__head { border-bottom-color: var(--hairline); }
+html[data-theme="G"][data-mode="light"] .ledger { background: var(--paper-soft); }
+html[data-theme="G"][data-mode="light"] .stats { background: var(--paper-soft); }
+html[data-theme="G"][data-mode="light"] .principles__grid { background: var(--paper-soft); }
+html[data-theme="G"][data-mode="light"] .audience { background: var(--paper-soft); }
+html[data-theme="G"][data-mode="light"] .product { background: var(--paper); }
+html[data-theme="G"][data-mode="light"] .product:hover { background: var(--paper-soft); }
+html[data-theme="G"][data-mode="light"] .product__pill { background: var(--paper-soft); }
+
+/* Disable the animated star-pulse glow in light mode (paper, not screen) */
+html[data-theme="G"][data-mode="light"] .hero__bg-cluster .named-star {
+  animation: star-in 500ms var(--ease) forwards !important;
+  filter: none !important;
+}
+html[data-theme="G"][data-mode="light"] .eyebrow::before {
+  box-shadow: none;
+}
+
+/* --- Reduced-motion: kill the twinkle, keep the chart -------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="G"] .hero__bg-ambient circle,
+  html[data-theme="G"] .hero__bg-cluster .cluster__lines path,
+  html[data-theme="G"] .hero__bg-cluster .cluster__stars circle,
+  html[data-theme="G"] .hero__bg-cluster .named-star {
+    animation: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

@@ -111,11 +111,16 @@ html[data-theme="D"] .wordmark__text {
   text-transform: uppercase;
 }
 html[data-theme="D"] .wordmark__glyph { color: var(--ink); }
-html[data-theme="D"] .wordmark__glyph .contour { stroke-width: 1.6; }
-html[data-theme="D"] .wordmark__glyph .c-1,
-html[data-theme="D"] .wordmark__glyph .c-2,
-html[data-theme="D"] .wordmark__glyph .c-3 { opacity: 1; }
-html[data-theme="D"] .wordmark__glyph .c-1 { color: var(--copper); }
+html[data-theme="D"] .wordmark__glyph .constellation-lines line {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  opacity: 1;
+}
+html[data-theme="D"] .wordmark__glyph .constellation-stars .star { fill: var(--ink); }
+html[data-theme="D"] .wordmark__glyph .constellation-stars .star.apex {
+  fill: var(--copper);
+  filter: none;
+}
 html[data-theme="D"] .nav__links {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -146,7 +151,7 @@ html[data-theme="D"] .theme-picker__dot { background: var(--copper); border-radi
 
 /* --- Hero -------------------------------------------------- */
 html[data-theme="D"] .hero { border-bottom: 2px solid var(--ink); }
-html[data-theme="D"] .hero__bg-contours { display: none; }
+html[data-theme="D"] .hero__bg-constellation { display: none; }
 html[data-theme="D"] .hero__bg-grain { display: none; }
 html[data-theme="D"] .hero__bg-grid {
   background-image:

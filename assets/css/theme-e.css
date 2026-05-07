@@ -149,10 +149,20 @@ html[data-theme="E"] .wordmark__text {
   color: var(--ink);
   text-shadow: 1px 0 var(--neon-magenta), -1px 0 var(--neon-cyan);
 }
-html[data-theme="E"] .wordmark__glyph .c-1 { color: var(--neon-magenta); opacity: 1; filter: drop-shadow(0 0 4px var(--neon-magenta)); }
-html[data-theme="E"] .wordmark__glyph .c-2 { color: var(--neon-cyan); opacity: 0.85; }
-html[data-theme="E"] .wordmark__glyph .c-3 { color: var(--neon-purple); opacity: 0.7; }
-html[data-theme="E"] .wordmark__glyph .contour { stroke-width: 1.4; }
+html[data-theme="E"] .wordmark__glyph .constellation-lines line {
+  stroke: var(--neon-cyan);
+  stroke-width: 1.4;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 3px var(--neon-cyan));
+}
+html[data-theme="E"] .wordmark__glyph .constellation-stars .star {
+  fill: var(--neon-cyan);
+  filter: drop-shadow(0 0 3px var(--neon-cyan));
+}
+html[data-theme="E"] .wordmark__glyph .constellation-stars .star.apex {
+  fill: var(--neon-magenta);
+  filter: drop-shadow(0 0 6px var(--neon-magenta));
+}
 
 html[data-theme="E"] .nav__links {
   font-family: var(--font-mono);
@@ -205,7 +215,7 @@ html[data-theme="E"] .theme-picker__dot {
 html[data-theme="E"] .theme-picker__label-letter { color: var(--neon-magenta); }
 
 /* --- Hero -------------------------------------------------- */
-html[data-theme="E"] .hero__bg-contours { display: none; }
+html[data-theme="E"] .hero__bg-constellation { display: none; }
 html[data-theme="E"] .hero__bg-grain {
   background:
     radial-gradient(60% 50% at 78% 18%, rgba(255, 46, 151, 0.28), transparent 70%),

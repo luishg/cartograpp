@@ -1,8 +1,10 @@
 /* =============================================================
-   Cartograpp — main.js
+   The Atlas Constellation — main.js
+   - Theme switcher (A–G + light/dark) persisted to localStorage
    - Sticky nav state + reading progress rail
    - IntersectionObserver-based reveal animations
    - Smooth anchor scroll with a11y focus handling
+   - Hero parallax: subtly drifts the starfield with scroll/cursor
    ============================================================= */
 
 (() => {
@@ -18,9 +20,10 @@
      --------------------------------------------------------- */
   const root = document.documentElement;
   const THEMES = {
-    A: 'Classic Carto',
-    B: 'Aspirational Abstract',
-    C: 'Corporate Professional',
+    G: 'Cosmic Atlas',
+    A: 'Editorial',
+    B: 'Aspirational',
+    C: 'Institutional',
     D: 'Rompedor',
     E: 'Cyberpunk',
     F: 'Distopian',
@@ -46,7 +49,7 @@
     const setTheme = (theme) => {
       if (!THEMES[theme]) return;
       root.setAttribute('data-theme', theme);
-      try { localStorage.setItem('cartograpp:theme', theme); } catch(e) {}
+      try { localStorage.setItem('atlas:theme', theme); } catch(e) {}
       renderActive(theme);
     };
 
@@ -104,7 +107,7 @@
     });
 
     // Initialize label from current attribute (set by inline head script)
-    renderActive(root.getAttribute('data-theme') || 'A');
+    renderActive(root.getAttribute('data-theme') || 'G');
   }
 
   // Mode toggle (light/dark)
@@ -112,7 +115,7 @@
   if (modeToggle) {
     const setMode = (mode) => {
       root.setAttribute('data-mode', mode);
-      try { localStorage.setItem('cartograpp:mode', mode); } catch(e) {}
+      try { localStorage.setItem('atlas:mode', mode); } catch(e) {}
       modeToggle.setAttribute('aria-label',
         mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     };
@@ -206,11 +209,11 @@
   });
 
   /* -----------------------------------------------------------
-     Hero contour parallax — drives CSS custom properties so the
-     SVG translates with scroll and (subtly) follows the cursor.
+     Hero starfield/contour parallax — drives CSS custom properties
+     so the SVG translates with scroll and (subtly) follows the cursor.
      Skipped entirely for reduced-motion or coarse pointers.
      --------------------------------------------------------- */
-  const contour = document.querySelector('.hero__bg-contours');
+  const contour = document.querySelector('.hero__bg-constellation, .hero__bg-contours');
   if (contour && !prefersReducedMotion) {
     const hero = document.querySelector('.hero');
     let scrollY = 0, mouseX = 0, mouseY = 0;

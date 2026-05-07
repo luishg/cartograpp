@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" data-theme="A" data-mode="light">
+<html lang="en" class="no-js" data-theme="G" data-mode="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#F4EFE3">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#070B14">
 
-  <title>Cartograpp — The cartography of the world&rsquo;s software</title>
-  <meta name="description" content="Cartograpp is the parent company building a neutral cartography of the world's software — by capability, trust, and execution. Home of Uptodown and the surfaces that follow.">
+  <title>The Atlas Constellation &mdash; Mapping the software universe</title>
+  <meta name="description" content="The Atlas Constellation is the higher-level layer that organizes, connects, and brings trust to the software universe. Built on Uptodown's twenty-plus years of cataloging the open web.">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cartograpp — The cartography of the world's software">
-  <meta property="og:description" content="A neutral cartography of all software — by capability, trust, and execution. Home of Uptodown.">
-  <meta property="og:url" content="https://www.cartograpp.com/">
-  <meta property="og:site_name" content="Cartograpp">
+  <meta property="og:title" content="The Atlas Constellation — Mapping the software universe">
+  <meta property="og:description" content="A higher-level layer that organizes, connects, and brings trust to every piece of software worth knowing. Home of Uptodown.">
+  <meta property="og:url" content="https://www.theatlasconstellation.com/">
+  <meta property="og:site_name" content="The Atlas Constellation">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cartograpp — The cartography of the world's software">
-  <meta name="twitter:description" content="A neutral cartography of all software — by capability, trust, and execution.">
+  <meta name="twitter:title" content="The Atlas Constellation — Mapping the software universe">
+  <meta name="twitter:description" content="A higher-level layer that organizes, connects, and brings trust to the software universe.">
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="canonical" href="https://www.cartograpp.com/">
+  <link rel="canonical" href="https://www.theatlasconstellation.com/">
 
   <script>
     (function(){
       var d = document.documentElement;
       d.classList.replace('no-js','js');
       try {
-        var t = localStorage.getItem('cartograpp:theme');
-        var m = localStorage.getItem('cartograpp:mode');
-        if (t && /^[ABCDEF]$/.test(t)) d.setAttribute('data-theme', t);
+        var t = localStorage.getItem('atlas:theme');
+        var m = localStorage.getItem('atlas:mode');
+        if (t && /^[ABCDEFG]$/.test(t)) d.setAttribute('data-theme', t);
         if (m === 'dark' || m === 'light') d.setAttribute('data-mode', m);
       } catch(e){}
     })();
@@ -45,6 +45,7 @@
   <link rel="stylesheet" href="/assets/css/theme-d.css">
   <link rel="stylesheet" href="/assets/css/theme-e.css">
   <link rel="stylesheet" href="/assets/css/theme-f.css">
+  <link rel="stylesheet" href="/assets/css/theme-g.css">
 </head>
 <body>
 
@@ -53,20 +54,36 @@
        ============================================================ -->
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="container nav__inner">
-      <a href="#top" class="wordmark" aria-label="Cartograpp — home">
+      <a href="#top" class="wordmark" aria-label="The Atlas Constellation — home">
         <span class="wordmark__glyph" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path class="contour c-1" d="M3 11 Q 11 6 16 9 T 29 11"/>
-            <path class="contour c-2" d="M3 16 Q 11 12 16 14 T 29 16"/>
-            <path class="contour c-3" d="M3 21 Q 12 19 16 20 T 29 21"/>
+          <svg viewBox="0 0 32 32" fill="none">
+            <!-- 7-star constellation forming the letter A -->
+            <g class="constellation-lines" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.55">
+              <line x1="16" y1="5" x2="10" y2="14"/>
+              <line x1="10" y1="14" x2="8" y2="20"/>
+              <line x1="8" y1="20" x2="5" y2="28"/>
+              <line x1="16" y1="5" x2="22" y2="14"/>
+              <line x1="22" y1="14" x2="24" y2="20"/>
+              <line x1="24" y1="20" x2="27" y2="28"/>
+              <line x1="10" y1="14" x2="22" y2="14"/>
+            </g>
+            <g class="constellation-stars" fill="currentColor">
+              <circle class="star apex" cx="16" cy="5" r="2"/>
+              <circle class="star" cx="10" cy="14" r="1.4"/>
+              <circle class="star" cx="22" cy="14" r="1.4"/>
+              <circle class="star" cx="8"  cy="20" r="1.2"/>
+              <circle class="star" cx="24" cy="20" r="1.2"/>
+              <circle class="star" cx="5"  cy="28" r="1.4"/>
+              <circle class="star" cx="27" cy="28" r="1.4"/>
+            </g>
           </svg>
         </span>
-        <span class="wordmark__text">Cartograpp</span>
+        <span class="wordmark__text">The Atlas Constellation</span>
       </a>
 
       <ul class="nav__links" role="list">
-        <li><a href="#opening">Opening</a></li>
-        <li><a href="#what">What</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#atlas">Atlas</a></li>
         <li><a href="#surfaces">Surfaces</a></li>
         <li><a href="#principles">Principles</a></li>
         <li><a href="#products">Products</a></li>
@@ -78,8 +95,8 @@
                   aria-haspopup="listbox" aria-expanded="false" aria-controls="theme-picker-menu">
             <span class="theme-picker__dot" aria-hidden="true"></span>
             <span class="theme-picker__label">
-              <span class="theme-picker__label-letter">A</span>
-              <span class="theme-picker__label-name">Classic Carto</span>
+              <span class="theme-picker__label-letter">G</span>
+              <span class="theme-picker__label-name">Cosmic Atlas</span>
             </span>
             <svg class="theme-picker__caret" viewBox="0 0 12 12" width="10" height="10"
                  fill="none" stroke="currentColor" stroke-width="1.5"
@@ -89,24 +106,31 @@
           </button>
           <ul class="theme-picker__menu" role="listbox" id="theme-picker-menu"
               aria-labelledby="theme-picker-trigger" hidden>
-            <li class="theme-picker__option" role="option" data-theme="A" aria-selected="true" tabindex="-1">
+            <li class="theme-picker__option" role="option" data-theme="G" aria-selected="true" tabindex="-1">
+              <span class="theme-picker__option-letter">G</span>
+              <span class="theme-picker__option-text">
+                <span class="theme-picker__option-name">Cosmic Atlas</span>
+                <span class="theme-picker__option-sub">Night sky · star chart</span>
+              </span>
+            </li>
+            <li class="theme-picker__option" role="option" data-theme="A" aria-selected="false" tabindex="-1">
               <span class="theme-picker__option-letter">A</span>
               <span class="theme-picker__option-text">
-                <span class="theme-picker__option-name">Classic Carto</span>
-                <span class="theme-picker__option-sub">Editorial · cartographer's paper</span>
+                <span class="theme-picker__option-name">Editorial</span>
+                <span class="theme-picker__option-sub">Daytime · paper chart</span>
               </span>
             </li>
             <li class="theme-picker__option" role="option" data-theme="B" aria-selected="false" tabindex="-1">
               <span class="theme-picker__option-letter">B</span>
               <span class="theme-picker__option-text">
-                <span class="theme-picker__option-name">Aspirational Abstract</span>
-                <span class="theme-picker__option-sub">Humanist · soft gradients</span>
+                <span class="theme-picker__option-name">Aspirational</span>
+                <span class="theme-picker__option-sub">Dusk · soft sky</span>
               </span>
             </li>
             <li class="theme-picker__option" role="option" data-theme="C" aria-selected="false" tabindex="-1">
               <span class="theme-picker__option-letter">C</span>
               <span class="theme-picker__option-text">
-                <span class="theme-picker__option-name">Corporate Professional</span>
+                <span class="theme-picker__option-name">Institutional</span>
                 <span class="theme-picker__option-sub">Restrained · enterprise</span>
               </span>
             </li>
@@ -114,21 +138,21 @@
               <span class="theme-picker__option-letter">D</span>
               <span class="theme-picker__option-text">
                 <span class="theme-picker__option-name">Rompedor</span>
-                <span class="theme-picker__option-sub">Brutalist · experimental</span>
+                <span class="theme-picker__option-sub">Brutalist · oversized</span>
               </span>
             </li>
             <li class="theme-picker__option" role="option" data-theme="E" aria-selected="false" tabindex="-1">
               <span class="theme-picker__option-letter">E</span>
               <span class="theme-picker__option-text">
                 <span class="theme-picker__option-name">Cyberpunk</span>
-                <span class="theme-picker__option-sub">Neon · glitch · terminal</span>
+                <span class="theme-picker__option-sub">Neon terminal sky</span>
               </span>
             </li>
             <li class="theme-picker__option" role="option" data-theme="F" aria-selected="false" tabindex="-1">
               <span class="theme-picker__option-letter">F</span>
               <span class="theme-picker__option-text">
                 <span class="theme-picker__option-name">Distopian</span>
-                <span class="theme-picker__option-sub">Sci-fi comic · bio-mech</span>
+                <span class="theme-picker__option-sub">Sci-fi · damaged sky</span>
               </span>
             </li>
           </ul>
@@ -167,29 +191,110 @@
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__bg-grain"></div>
         <div class="hero__bg-grid"></div>
-        <svg class="hero__bg-contours" viewBox="0 0 1600 1100" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+
+        <!-- Starfield + named constellations: replaces topographic contours.
+             Three labeled clusters (CAPABILITY · TRUST · EXECUTION) plus
+             ambient unconnected stars. Each theme restyles its presence. -->
+        <svg class="hero__bg-constellation" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            <linearGradient id="contour-grad" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0%" stop-color="currentColor" stop-opacity="0"/>
-              <stop offset="35%" stop-color="currentColor" stop-opacity="0.55"/>
-              <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
-            </linearGradient>
+            <radialGradient id="starGlow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%"  stop-color="currentColor" stop-opacity="0.95"/>
+              <stop offset="60%" stop-color="currentColor" stop-opacity="0.20"/>
+              <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+            </radialGradient>
           </defs>
-          <g fill="none" stroke="url(#contour-grad)" stroke-width="0.7" stroke-linecap="round">
-            <path pathLength="1" d="M1600,180 C1380,130 1260,200 1160,240 C1040,290 940,260 820,310"/>
-            <path pathLength="1" d="M1600,260 C1360,210 1240,290 1140,330 C1020,380 920,350 780,420"/>
-            <path pathLength="1" d="M1600,360 C1340,310 1220,400 1100,440 C980,490 880,460 740,540"/>
-            <path pathLength="1" d="M1600,470 C1320,420 1200,520 1060,560 C940,600 840,580 700,660"/>
-            <path pathLength="1" d="M1600,580 C1300,530 1180,640 1020,670 C900,700 800,690 660,780"/>
-            <path pathLength="1" d="M1600,700 C1280,650 1160,760 980,780 C860,800 760,800 620,890"/>
-            <path pathLength="1" d="M1600,820 C1260,770 1140,880 940,890 C820,900 720,910 580,1000"/>
-            <path pathLength="1" d="M1600,940 C1240,890 1120,1000 900,1000 C780,1010 680,1020 540,1100"/>
+
+          <!-- Ambient unconnected stars (35) — small + faint -->
+          <g class="hero__bg-ambient" fill="currentColor">
+            <circle cx="120"  cy="160" r="0.8"  opacity="0.30"/>
+            <circle cx="220"  cy="90"  r="1.2"  opacity="0.45"/>
+            <circle cx="310"  cy="220" r="0.6"  opacity="0.25"/>
+            <circle cx="80"   cy="330" r="1.0"  opacity="0.35"/>
+            <circle cx="180"  cy="420" r="0.7"  opacity="0.30"/>
+            <circle cx="430"  cy="110" r="0.9"  opacity="0.40"/>
+            <circle cx="540"  cy="40"  r="0.6"  opacity="0.25"/>
+            <circle cx="650"  cy="200" r="1.1"  opacity="0.45"/>
+            <circle cx="520"  cy="320" r="0.7"  opacity="0.30"/>
+            <circle cx="380"  cy="500" r="0.9"  opacity="0.35"/>
+            <circle cx="250"  cy="620" r="0.6"  opacity="0.25"/>
+            <circle cx="140"  cy="720" r="1.0"  opacity="0.40"/>
+            <circle cx="60"   cy="540" r="0.8"  opacity="0.30"/>
+            <circle cx="710"  cy="430" r="0.6"  opacity="0.25"/>
+            <circle cx="800"  cy="540" r="1.1"  opacity="0.45"/>
+            <circle cx="900"  cy="120" r="0.9"  opacity="0.40"/>
+            <circle cx="970"  cy="260" r="0.6"  opacity="0.25"/>
+            <circle cx="1040" cy="380" r="0.8"  opacity="0.30"/>
+            <circle cx="1180" cy="180" r="1.0"  opacity="0.40"/>
+            <circle cx="1260" cy="60"  r="0.6"  opacity="0.25"/>
+            <circle cx="1310" cy="280" r="0.9"  opacity="0.35"/>
+            <circle cx="1440" cy="160" r="0.7"  opacity="0.30"/>
+            <circle cx="1520" cy="320" r="1.1"  opacity="0.45"/>
+            <circle cx="1390" cy="450" r="0.6"  opacity="0.25"/>
+            <circle cx="1180" cy="540" r="0.8"  opacity="0.30"/>
+            <circle cx="1050" cy="640" r="1.0"  opacity="0.40"/>
+            <circle cx="900"  cy="700" r="0.7"  opacity="0.30"/>
+            <circle cx="770"  cy="800" r="0.9"  opacity="0.35"/>
+            <circle cx="610"  cy="880" r="0.6"  opacity="0.25"/>
+            <circle cx="450"  cy="940" r="1.0"  opacity="0.40"/>
+            <circle cx="290"  cy="970" r="0.7"  opacity="0.30"/>
+            <circle cx="1230" cy="780" r="0.9"  opacity="0.35"/>
+            <circle cx="1380" cy="660" r="0.6"  opacity="0.25"/>
+            <circle cx="1500" cy="540" r="0.8"  opacity="0.30"/>
+            <circle cx="1560" cy="800" r="1.1"  opacity="0.45"/>
           </g>
-          <!-- elevation pings -->
-          <g class="hero__bg-pings">
-            <circle cx="1180" cy="240" r="2.5" fill="currentColor"/>
-            <circle cx="1100" cy="440" r="2.5" fill="currentColor"/>
-            <circle cx="1020" cy="670" r="2.5" fill="currentColor"/>
+
+          <!-- Cluster 1 — CAPABILITY (~30% horizontal) -->
+          <g class="hero__bg-cluster cluster-1">
+            <g class="cluster__lines" stroke="currentColor" stroke-width="0.7" opacity="0.30" fill="none" stroke-linecap="round">
+              <path pathLength="1" d="M340 270 L420 230 L500 270 L460 360 L380 360 Z"/>
+              <path pathLength="1" d="M420 230 L460 360"/>
+              <path pathLength="1" d="M500 270 L560 200"/>
+            </g>
+            <g class="cluster__stars" fill="currentColor">
+              <circle cx="340" cy="270" r="2.0"/>
+              <circle cx="420" cy="230" r="2.6" class="named-star"/>
+              <circle cx="500" cy="270" r="2.0"/>
+              <circle cx="460" cy="360" r="2.0"/>
+              <circle cx="380" cy="360" r="2.0"/>
+              <circle cx="560" cy="200" r="1.6"/>
+            </g>
+            <text class="cluster__label" x="340" y="430">CAPABILITY</text>
+          </g>
+
+          <!-- Cluster 2 — TRUST (~55% horizontal, slightly higher) -->
+          <g class="hero__bg-cluster cluster-2">
+            <g class="cluster__lines" stroke="currentColor" stroke-width="0.7" opacity="0.30" fill="none" stroke-linecap="round">
+              <path pathLength="1" d="M820 180 L890 230 L960 180 L920 90 Z"/>
+              <path pathLength="1" d="M890 230 L900 330"/>
+              <path pathLength="1" d="M820 180 L760 280"/>
+            </g>
+            <g class="cluster__stars" fill="currentColor">
+              <circle cx="820" cy="180" r="2.0"/>
+              <circle cx="890" cy="230" r="2.6" class="named-star"/>
+              <circle cx="960" cy="180" r="2.0"/>
+              <circle cx="920" cy="90"  r="2.0"/>
+              <circle cx="900" cy="330" r="1.8"/>
+              <circle cx="760" cy="280" r="1.6"/>
+            </g>
+            <text class="cluster__label" x="820" y="400">TRUST</text>
+          </g>
+
+          <!-- Cluster 3 — EXECUTION (~80% horizontal) -->
+          <g class="hero__bg-cluster cluster-3">
+            <g class="cluster__lines" stroke="currentColor" stroke-width="0.7" opacity="0.30" fill="none" stroke-linecap="round">
+              <path pathLength="1" d="M1180 320 L1260 280 L1340 340 L1280 430"/>
+              <path pathLength="1" d="M1260 280 L1330 200"/>
+              <path pathLength="1" d="M1280 430 L1200 460"/>
+            </g>
+            <g class="cluster__stars" fill="currentColor">
+              <circle cx="1180" cy="320" r="2.0"/>
+              <circle cx="1260" cy="280" r="2.6" class="named-star"/>
+              <circle cx="1340" cy="340" r="2.0"/>
+              <circle cx="1280" cy="430" r="2.0"/>
+              <circle cx="1330" cy="200" r="1.8"/>
+              <circle cx="1200" cy="460" r="1.6"/>
+            </g>
+            <text class="cluster__label" x="1180" y="510">EXECUTION</text>
           </g>
         </svg>
       </div>
@@ -200,66 +305,65 @@
             <span class="mono">36° 43&prime; N · 04° 25&prime; W</span>
             <span class="mono">Málaga · Independent · Since 2002</span>
           </div>
-          <span class="hero__year mono">CARTOGRAPP — v0.2 · 2026</span>
+          <span class="hero__year mono">ATLAS · v0.3 · 2026</span>
         </header>
 
         <div class="hero__inner">
           <h1 id="hero-heading" class="hero__title reveal">
-            Make software<br><em>knowable</em>.
+            Mapping the<br><em>software universe</em>.
           </h1>
 
           <p class="hero__lead reveal" data-delay="1">
-            Cartograpp turns the world&rsquo;s software into something you can actually
-            understand — by <strong>capability</strong>, <strong>trust</strong>, and
-            <strong>execution</strong>. Legible to humans. Legible to machines.
+            The Atlas Constellation is a higher-level layer that
+            <strong>organizes</strong>, <strong>connects</strong>, and brings
+            <strong>trust</strong> to every piece of software worth knowing.
           </p>
 
           <p class="hero__support reveal" data-delay="2">
-            Home of <a class="hero__link" href="https://en.uptodown.com" rel="noopener">Uptodown</a>
-            and the products being built on top of two decades of real software distribution.
+            Built on <a class="hero__link" href="https://en.uptodown.com" rel="noopener">Uptodown</a>&rsquo;s
+            twenty-plus years of cataloging the open web — and the products
+            being charted on top of it.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         § OPENING
+         § PROBLEM
          ============================================================ -->
-    <section id="opening" class="opening" aria-labelledby="opening-heading">
+    <section id="problem" class="opening" aria-labelledby="problem-heading">
       <div class="container">
         <div class="two-col">
           <div class="col-head">
             <div class="section-head">
-              <span class="eyebrow reveal">§01 · The opening</span>
-              <h2 id="opening-heading" class="display reveal" data-delay="1">
-                Software is abundant.<br>Understanding it is not.
+              <span class="eyebrow reveal">§01 · The problem</span>
+              <h2 id="problem-heading" class="display reveal" data-delay="1">
+                Software is abundant.<br><em>Understanding it</em> is not.
               </h2>
             </div>
             <p class="opening__pullquote reveal" data-delay="2">
-              Code has become cheap to produce. <em>Operational knowledge of software has become the scarce resource.</em>
+              The universe keeps expanding. <em>The chart hasn&rsquo;t kept up.</em>
             </p>
           </div>
 
           <div class="opening__body">
             <p class="body reveal">
-              Every day, more software is shipped than any individual, organization, or platform
-              can meaningfully evaluate. Ecosystems have fragmented across operating systems,
-              package managers, stores, runtimes, and distribution models — each with its own
-              metadata, its own trust assumptions, and its own private view of what a given
-              piece of software actually is.
+              Millions of artifacts cross every platform, language, and
+              runtime. There is no shared sky — every store, registry, and
+              silo holds its own private slice of what software is, where it
+              came from, and whether it can be trusted.
             </p>
             <p class="body reveal" data-delay="1">
-              Discovery — the original problem of app stores — has stopped being the hard
-              problem. The hard problems now are:
-              <strong>what does this software actually do, can it be trusted, how is it
-              obtained, installed, updated, and rolled back</strong> — and under what
-              conditions does any of that continue to hold.
+              Discovery has stopped being the hard problem. The hard
+              questions now are <strong>what does this do, can it be
+              trusted, and how does it behave when it runs</strong> &mdash;
+              and the answers are buried, fragmented, or missing entirely.
             </p>
             <p class="body reveal" data-delay="2">
-              App stores were never built to answer those questions neutrally. They were built
-              to sell. As more software is consumed and orchestrated by automated systems and
-              agents, the need for a structured, machine-readable understanding of software
-              becomes infrastructural — not optional.
+              As more software is consumed and orchestrated by automated
+              systems and agents, a structured, machine-readable
+              understanding of software becomes infrastructural &mdash; not
+              optional.
             </p>
           </div>
         </div>
@@ -267,39 +371,33 @@
         <dl class="ledger reveal" data-delay="2">
           <div class="ledger__cell">
             <dt class="ledger__label">Volume</dt>
-            <dd>More software is shipped in a year than any team can review in a decade.</dd>
+            <dd>Tens of millions of artifacts across every platform, language, and runtime.</dd>
           </div>
           <div class="ledger__cell">
             <dt class="ledger__label">Fragmentation</dt>
-            <dd>Identities, metadata, and trust models differ between every store, registry, and platform.</dd>
+            <dd>Stores, registries, and silos that don&rsquo;t speak to each other.</dd>
           </div>
           <div class="ledger__cell">
             <dt class="ledger__label">Opacity</dt>
-            <dd>Security, provenance, and lifecycle information sit hidden behind commercial interfaces.</dd>
-          </div>
-          <div class="ledger__cell">
-            <dt class="ledger__label">Consumers</dt>
-            <dd>Software is increasingly consumed by systems, not just people. Systems need structure, not prose.</dd>
+            <dd>Provenance, behavior, and trust are buried &mdash; or missing entirely.</dd>
           </div>
         </dl>
       </div>
     </section>
 
     <!-- ============================================================
-         § WHAT CARTOGRAPP IS
+         § ATLAS — what the constellation is
          ============================================================ -->
-    <section id="what" class="what" aria-labelledby="what-heading">
+    <section id="atlas" class="what" aria-labelledby="atlas-heading">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">§02 · Definition</span>
-          <h2 id="what-heading" class="display reveal" data-delay="1">
-            A cartography of software,<br>organized around <em>capability, trust, and execution.</em>
+          <span class="eyebrow reveal">§02 · The constellation</span>
+          <h2 id="atlas-heading" class="display reveal" data-delay="1">
+            A <em>chart</em> of the software universe.
           </h2>
           <p class="lead reveal" data-delay="2">
-            Cartograpp is not a store, not a catalog, and not an interface over a catalog.
-            It is the company building a foundational layer that describes software in a
-            structured, neutral, operationally useful way — legible to humans and to the
-            systems built around them.
+            Four orbits, one atlas. Each piece of software is a star;
+            the lines between them are how we make sense of the whole.
           </p>
         </div>
 
@@ -308,15 +406,28 @@
             <div class="schematic__title">
               <span class="schematic__mark" aria-hidden="true">
                 <svg viewBox="0 0 32 32">
-                  <circle class="ring-outer" cx="16" cy="16" r="13"/>
-                  <circle class="ring-inner" cx="16" cy="16" r="7"/>
-                  <path class="needle-n" d="M16 3 L17.5 16 L16 29 L14.5 16 Z"/>
-                  <path class="needle-e" d="M3 16 L16 14.5 L29 16 L16 17.5 Z"/>
-                  <circle class="hub" cx="16" cy="16" r="1.5"/>
+                  <g class="constellation-lines" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.55" fill="none">
+                    <line x1="16" y1="5" x2="10" y2="14"/>
+                    <line x1="10" y1="14" x2="8" y2="20"/>
+                    <line x1="8" y1="20" x2="5" y2="28"/>
+                    <line x1="16" y1="5" x2="22" y2="14"/>
+                    <line x1="22" y1="14" x2="24" y2="20"/>
+                    <line x1="24" y1="20" x2="27" y2="28"/>
+                    <line x1="10" y1="14" x2="22" y2="14"/>
+                  </g>
+                  <g class="constellation-stars" fill="currentColor">
+                    <circle class="star apex" cx="16" cy="5" r="2.2"/>
+                    <circle class="star" cx="10" cy="14" r="1.4"/>
+                    <circle class="star" cx="22" cy="14" r="1.4"/>
+                    <circle class="star" cx="8"  cy="20" r="1.2"/>
+                    <circle class="star" cx="24" cy="20" r="1.2"/>
+                    <circle class="star" cx="5"  cy="28" r="1.4"/>
+                    <circle class="star" cx="27" cy="28" r="1.4"/>
+                  </g>
                 </svg>
               </span>
-              <span class="schematic__name">Cartograpp</span>
-              <span class="schematic__sub">Four planes · one cartography</span>
+              <span class="schematic__name">Atlas</span>
+              <span class="schematic__sub">Four orbits · one chart</span>
             </div>
             <span class="schematic__ref mono">FIG. §02</span>
           </header>
@@ -324,10 +435,10 @@
           <ol class="schematic__planes" role="list">
             <li class="plane">
               <header class="plane__head">
-                <h3 class="plane__title">Capability<br>graph</h3>
+                <h3 class="plane__title">Capability<br>orbit</h3>
               </header>
               <div class="plane__body">
-                <p class="plane__sub">What software does.</p>
+                <p class="plane__sub">What each star does.</p>
                 <ul class="plane__list" role="list">
                   <li>functions</li>
                   <li>categories</li>
@@ -338,38 +449,38 @@
             </li>
             <li class="plane">
               <header class="plane__head">
-                <h3 class="plane__title">Trust &amp;<br>provenance</h3>
+                <h3 class="plane__title">Trust<br>orbit</h3>
               </header>
               <div class="plane__body">
                 <p class="plane__sub">Whether it can be trusted.</p>
                 <ul class="plane__list" role="list">
+                  <li>provenance</li>
+                  <li>signatures &amp; lineage</li>
                   <li>security signals</li>
-                  <li>origin &amp; authorship</li>
-                  <li>explainability</li>
                   <li>continuity</li>
                 </ul>
               </div>
             </li>
             <li class="plane">
               <header class="plane__head">
-                <h3 class="plane__title">Execution<br>knowledge</h3>
+                <h3 class="plane__title">Execution<br>orbit</h3>
               </header>
               <div class="plane__body">
-                <p class="plane__sub">How it runs.</p>
+                <p class="plane__sub">How it actually behaves.</p>
                 <ul class="plane__list" role="list">
-                  <li>install paths</li>
-                  <li>update &amp; rollback</li>
+                  <li>install &amp; rollback</li>
                   <li>compatibility</li>
+                  <li>runtime behavior</li>
                   <li>lifecycle</li>
                 </ul>
               </div>
             </li>
             <li class="plane">
               <header class="plane__head">
-                <h3 class="plane__title">Multi-surface<br>access</h3>
+                <h3 class="plane__title">Access<br>orbit</h3>
               </header>
               <div class="plane__body">
-                <p class="plane__sub">Who consumes it.</p>
+                <p class="plane__sub">One chart, every surface.</p>
                 <ul class="plane__list" role="list">
                   <li>humans</li>
                   <li>systems</li>
@@ -384,30 +495,29 @@
     </section>
 
     <!-- ============================================================
-         § FOUNDATIONS
+         § FOUNDATIONS / HERITAGE
          ============================================================ -->
     <section id="foundations" class="foundations" aria-labelledby="foundations-heading">
       <div class="container">
         <div class="two-col two-col--reverse">
           <div class="col-head">
             <div class="section-head">
-              <span class="eyebrow reveal">§03 · Foundations</span>
+              <span class="eyebrow reveal">§03 · Heritage</span>
               <h2 id="foundations-heading" class="display reveal" data-delay="1">
-                Not starting<br>from zero.
+                Not starting<br>from <em>a blank sky</em>.
               </h2>
             </div>
           </div>
           <div class="foundations__body">
             <p class="body reveal">
-              Cartograpp extends work that has been in motion, in production, at scale, for
-              more than two decades. The team behind it has spent twenty years operating
-              real-world software distribution under the Uptodown name — indexing
-              applications, curating metadata, running security workflows, maintaining
-              version histories, and shipping software into every corner of the world.
+              The observatory has been running since 2002. Two decades of
+              indexing, curating, and shipping software under the Uptodown
+              name &mdash; at global scale, under real operational load.
             </p>
             <p class="body reveal" data-delay="1">
-              This is not a thesis in search of a dataset. It is a dataset, an editorial
-              practice, and an operation — in search of a more strategic expression.
+              The Atlas Constellation is its strategic expression: the same
+              data, the same editorial discipline, lifted into a chart that
+              other systems can read.
             </p>
           </div>
         </div>
@@ -418,118 +528,80 @@
               <span class="stats__num"><em>20+</em></span>
               <span class="stats__unit">years</span>
             </dt>
-            <dd>of continuous software distribution, at global scale.</dd>
+            <dd>observing, naming, and cataloging software since 2002.</dd>
           </div>
           <div class="stats__cell">
             <dt class="stats__value">
               <span class="stats__num"><em>millions</em></span>
               <span class="stats__unit">of artifacts</span>
             </dt>
-            <dd>indexed, classified, and versioned — not as listings, as entities.</dd>
+            <dd>apps, builds, and versions already charted.</dd>
           </div>
           <div class="stats__cell">
             <dt class="stats__value">
               <span class="stats__num"><em>global</em></span>
               <span class="stats__unit">reach</span>
             </dt>
-            <dd>across every major platform and every region in the world.</dd>
+            <dd>one of the most-visited app sources on the open web.</dd>
           </div>
           <div class="stats__cell">
             <dt class="stats__value">
               <span class="stats__num"><em>proven</em></span>
               <span class="stats__unit">at scale</span>
             </dt>
-            <dd>under real operational load — not in a pitch deck.</dd>
+            <dd>infrastructure tested by hundreds of millions of downloads.</dd>
           </div>
         </dl>
 
         <p class="foundations__note reveal" data-delay="3">
-          The foundation is already there. <em>Cartograpp is its public form.</em>
+          The observatory is already there. <em>The Atlas Constellation is its public chart.</em>
         </p>
       </div>
     </section>
 
     <!-- ============================================================
-         § SURFACES (formerly Service areas)
+         § SURFACES
          ============================================================ -->
     <section id="surfaces" class="surfaces" aria-labelledby="surfaces-heading">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">§04 · What we build</span>
+          <span class="eyebrow reveal">§04 · Surfaces</span>
           <h2 id="surfaces-heading" class="display reveal" data-delay="1">
-            One cartography.<br>Five surfaces.
+            One chart.<br><em>Four surfaces.</em>
           </h2>
           <p class="lead reveal" data-delay="2">
-            Cartograpp ships as a single coherent system with focused, opinionated surfaces —
-            each shaped for a different kind of consumer of software intelligence.
+            The same atlas, reachable wherever the question is asked.
           </p>
         </div>
 
         <div class="service-list">
           <article class="service-row reveal">
             <div class="service-row__title">
-              <h3>Software index &amp; metadata</h3>
-              <div class="meta">The backbone</div>
+              <h3>Discovery</h3>
+              <div class="meta">Find any star</div>
             </div>
             <div class="service-row__body">
               <p>
-                Structured software identity at scale: canonical identifiers, capability
-                classification, version history, cross-platform linkage, and enriched
-                metadata that treats each piece of software as a continuous entity rather
-                than a static listing.
+                Find any piece of software by name, capability, or behavior &mdash;
+                across operating systems, languages, and runtimes. One canonical
+                identity per star, instead of a different listing in every catalog.
               </p>
               <div class="service-row__tags">
-                <span>canonical IDs</span><span>capability taxonomy</span><span>version history</span><span>cross-platform</span>
+                <span>canonical IDs</span><span>capability search</span><span>cross-platform</span><span>version history</span>
               </div>
             </div>
           </article>
 
           <article class="service-row reveal">
             <div class="service-row__title">
-              <h3>Trust &amp; transparency layer</h3>
-              <div class="meta">Explainable</div>
+              <h3>Signals</h3>
+              <div class="meta">Programmatic access</div>
             </div>
             <div class="service-row__body">
               <p>
-                Security signals, provenance, and classification designed to be legible to
-                both humans and systems. A deliberate separation between real risk, policy
-                conflict, and uncertainty — with the reasoning behind every signal made
-                available, not hidden behind a verdict.
-              </p>
-              <div class="service-row__tags">
-                <span>security signals</span><span>provenance</span><span>explainability</span><span>continuity</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-row reveal">
-            <div class="service-row__title">
-              <h3>Execution knowledge</h3>
-              <div class="meta">Operational</div>
-            </div>
-            <div class="service-row__body">
-              <p>
-                How software is obtained, installed, updated, rolled back, and operated
-                across environments. Platform-aware compatibility and continuity information
-                that reflects how software actually behaves — not only how it is published.
-              </p>
-              <div class="service-row__tags">
-                <span>install paths</span><span>rollback</span><span>compatibility</span><span>lifecycle</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-row reveal">
-            <div class="service-row__title">
-              <h3>APIs for platforms, enterprises &amp; agents</h3>
-              <div class="meta">Machine-readable</div>
-            </div>
-            <div class="service-row__body">
-              <p>
-                Machine-readable interfaces for third-party stores, enterprise governance,
-                orchestration tooling, and emerging agent-based workflows. Software
-                intelligence should be a first-class input to other systems — not a page to
-                scrape.
+                Machine-readable access to the constellation for builders, platforms,
+                and agents. Software intelligence as a first-class input &mdash; not a
+                page to scrape.
               </p>
               <div class="service-row__tags">
                 <span>public APIs</span><span>agent-ready</span><span>webhooks</span><span>enterprise integrations</span>
@@ -539,17 +611,34 @@
 
           <article class="service-row reveal">
             <div class="service-row__title">
-              <h3>Sovereign &amp; deployable infrastructure</h3>
-              <div class="meta">Policy-ready</div>
+              <h3>Trust</h3>
+              <div class="meta">Verifiable</div>
             </div>
             <div class="service-row__body">
               <p>
-                Mirrors, isolated deployments, and policy-ready software intelligence for
-                regulated environments, national digital programs, and sovereignty-oriented
-                organizations that require independence, auditability, and local control.
+                Verifiable provenance, signatures, and integrity for every artifact.
+                A deliberate separation between real risk, policy conflict, and
+                uncertainty &mdash; with the reasoning made available.
               </p>
               <div class="service-row__tags">
-                <span>mirrors</span><span>isolated deploys</span><span>policy controls</span><span>auditability</span>
+                <span>provenance</span><span>signatures</span><span>explainability</span><span>continuity</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-row reveal">
+            <div class="service-row__title">
+              <h3>Intelligence</h3>
+              <div class="meta">Answers, not records</div>
+            </div>
+            <div class="service-row__body">
+              <p>
+                A living understanding of the universe &mdash; not just a list of files.
+                Structured answers for analysts, agents, and the apps that need to
+                reason about software rather than guess at it.
+              </p>
+              <div class="service-row__tags">
+                <span>structured answers</span><span>agent reasoning</span><span>continuity</span><span>policy-aware</span>
               </div>
             </div>
           </article>
@@ -565,54 +654,43 @@
         <div class="section-head">
           <span class="eyebrow reveal">§05 · Principles</span>
           <h2 id="principles-heading" class="display reveal" data-delay="1">
-            The commitments<br>behind the system.
+            The commitments<br><em>behind the chart.</em>
           </h2>
           <p class="lead reveal" data-delay="2">
-            Cartograpp is defined as much by what it refuses to become as by what it builds.
-            These five commitments are the durable constraints underneath every design
-            decision.
+            A neutral observatory only works if it stays that way.
           </p>
         </div>
 
-        <div class="principles__grid">
+        <div class="principles__grid principles__grid--four">
           <article class="principle reveal">
             <h3 class="principle__title">Neutrality</h3>
             <p class="principle__body">
-              Independent of any single platform, vendor, or store. We describe what is —
-              we do not prefer who ships it.
+              No platform, no kingmakers. Every star charted on the same terms,
+              independent of who ships it.
             </p>
           </article>
 
           <article class="principle reveal" data-delay="1">
             <h3 class="principle__title">Trust</h3>
             <p class="principle__body">
-              Explainability over opacity. Provenance over assertion. Continuity over
-              snapshots — and the reasoning behind every signal, made available.
+              Provenance, signatures, and human signal &mdash; verifiable, never implied.
+              Reasoning behind every claim, made available.
             </p>
           </article>
 
           <article class="principle reveal" data-delay="2">
             <h3 class="principle__title">Accessibility</h3>
             <p class="principle__body">
-              Open access to software knowledge across regions, systems, and use cases.
-              The fragmentation of software must not mean the fragmentation of
-              understanding.
+              Legible to people, machines, and the agents in between &mdash; across
+              regions, platforms, and use cases.
             </p>
           </article>
 
           <article class="principle reveal" data-delay="3">
             <h3 class="principle__title">Intelligence</h3>
             <p class="principle__body">
-              Software organized into operationally useful knowledge — not just lists, not
-              just search, not just prose. Structure that other systems can act on.
-            </p>
-          </article>
-
-          <article class="principle reveal" data-delay="4">
-            <h3 class="principle__title">Human signal</h3>
-            <p class="principle__body">
-              Editorial judgment and human context matter more in a noisy software world,
-              not less. Cartograpp is built by and with people, deliberately.
+              Not a list of files. A living understanding of the universe &mdash;
+              structure that other systems can act on.
             </p>
           </article>
         </div>
@@ -625,46 +703,49 @@
     <section id="audiences" class="audiences" aria-labelledby="audiences-heading">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow reveal">§06 · Audiences</span>
+          <span class="eyebrow reveal">§06 · For</span>
           <h2 id="audiences-heading" class="display reveal" data-delay="1">
-            For those building<br>what comes next.
+            For those building<br><em>what comes next.</em>
           </h2>
+          <p class="lead reveal" data-delay="2">
+            The chart is open to anyone who needs ground truth about software.
+          </p>
         </div>
 
         <div class="audiences__grid">
           <article class="audience reveal">
-            <h3>Third-party stores &amp; software ecosystems</h3>
+            <h3>Builders</h3>
             <p>
-              A neutral, enriched software intelligence layer beneath app stores,
-              marketplaces, and distribution platforms — so they can focus on their own
-              front ends without rebuilding the index from scratch.
+              Engineers and platforms wiring software into new products &mdash;
+              with one canonical chart underneath instead of a dozen
+              fragmented sources.
             </p>
           </article>
 
           <article class="audience reveal" data-delay="1">
-            <h3>Enterprises &amp; IT governance</h3>
+            <h3>Agents</h3>
             <p>
-              A foundation for software inventory, approval workflows, and risk
-              evaluation that reflects reality across operating systems, clouds, and
-              vendors — rather than the view of any single platform.
+              Autonomous systems that need verifiable answers, not scraped
+              guesses. Software intelligence as a first-class input to
+              reasoning.
             </p>
           </article>
 
           <article class="audience reveal" data-delay="2">
-            <h3>Governments &amp; sovereignty programs</h3>
+            <h3>Enterprises</h3>
             <p>
-              Deployable, auditable software intelligence for regulated environments,
-              national digital programs, and public-sector procurement where
-              independence and local control are non-negotiable.
+              Teams that require provenance, compliance, and continuity
+              across operating systems, clouds, and vendors &mdash; with a
+              chart they can actually audit.
             </p>
           </article>
 
           <article class="audience reveal" data-delay="3">
-            <h3>Developers, platforms &amp; agents</h3>
+            <h3>Sovereigns</h3>
             <p>
-              APIs and machine-readable context for automation tooling, build systems,
-              deployment platforms, and agent workflows that need to reason about
-              software rather than guess at it.
+              Governments and institutions charting their own software sky:
+              auditable, deployable intelligence for regulated environments
+              and national programs.
             </p>
           </article>
         </div>
@@ -672,19 +753,18 @@
     </section>
 
     <!-- ============================================================
-         § PRODUCTS — One map. Multiple products.
+         § PRODUCTS — One atlas. Multiple instruments.
          ============================================================ -->
     <section id="products" class="products" aria-labelledby="products-heading">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow reveal">§07 · Products</span>
           <h2 id="products-heading" class="display reveal" data-delay="1">
-            One map.<br>Multiple <em>products and services.</em>
+            One atlas.<br><em>Multiple instruments.</em>
           </h2>
           <p class="lead reveal" data-delay="2">
-            Cartograpp is the cartography. Uptodown is the first product built on top of
-            it. More are charted, in build, or on the horizon — each shaped for a
-            different way of consuming software intelligence.
+            Different ways to read the same sky. Uptodown is the first
+            instrument. More are charted, in build, or on the horizon.
           </p>
         </div>
 
@@ -700,9 +780,10 @@
             <div class="product__body">
               <h3 class="product__name">Uptodown</h3>
               <p class="product__desc">
-                The consumer-facing software distribution surface. Used by hundreds of
-                millions of people across every region in the world, on every major
-                platform — and now being rebuilt on top of Cartograpp&rsquo;s cartography.
+                The consumer observatory. Hundreds of millions of people
+                already use it to find software &mdash; on every major
+                platform, in every region of the world. Now being rebuilt
+                on top of the Atlas chart.
               </p>
               <a class="product__link" href="https://en.uptodown.com" rel="noopener">
                 <span>Visit en.uptodown.com</span>
@@ -722,11 +803,12 @@
               <span class="product__since mono">2026 →</span>
             </header>
             <div class="product__body">
-              <h3 class="product__name">Cartograpp APIs</h3>
+              <h3 class="product__name">Atlas Signals</h3>
               <p class="product__desc">
-                Machine-readable cartography for third-party stores, enterprise
-                governance, build pipelines, and agent-based workflows. Software
-                intelligence as a first-class input — not a page to scrape.
+                The programmatic interface to the constellation &mdash; for
+                builders, platforms, and agents. APIs, webhooks, and
+                machine-readable answers, designed to be reasoned over, not
+                scraped.
               </p>
             </div>
           </li>
@@ -737,19 +819,19 @@
               <span class="product__since mono">In design</span>
             </header>
             <div class="product__body">
-              <h3 class="product__name">Sovereign cartography</h3>
+              <h3 class="product__name">Atlas Sovereign</h3>
               <p class="product__desc">
-                Deployable, auditable software intelligence for regulated environments and
-                national digital programs that require independence, local control, and
-                policy-aware operations.
+                A private instance of the chart, for nations and
+                institutions that need their own sky &mdash; auditable,
+                deployable, and governed locally.
               </p>
             </div>
           </li>
         </ol>
 
         <p class="products__note reveal" data-delay="3">
-          One cartography, many surfaces. <em>Uptodown is the first product to stand on
-          it — it will not be the last.</em>
+          One atlas, many instruments. <em>Uptodown is the first to read the
+          sky &mdash; it will not be the last.</em>
         </p>
       </div>
     </section>
@@ -764,31 +846,31 @@
             <div class="section-head">
               <span class="eyebrow reveal">§08 · Direction</span>
               <h2 id="direction-heading" class="display reveal" data-delay="1">
-                In development,<br>progressively.
+                In motion,<br><em>progressively.</em>
               </h2>
             </div>
           </div>
 
           <div class="direction__body">
             <p class="reveal">
-              Cartograpp is being built deliberately, not launched. Its first surfaces will
-              emerge over the coming quarters and years — some quietly, some as public
-              releases — each shaped by real operational use rather than announcement
-              cycles.
+              The Atlas Constellation is being charted in the open, one
+              orbit at a time. Some surfaces will emerge quietly, some as
+              public releases &mdash; each shaped by real operational use,
+              not announcement cycles.
             </p>
             <p class="reveal" data-delay="1">
-              This page exists now so the direction is legible — to collaborators, future
-              partners, the teams and organizations who will build on top of Cartograpp,
-              and the small number of people who will help shape it.
+              This page exists so the direction is legible &mdash; to
+              collaborators, to future partners, and to the people who will
+              help shape the chart.
             </p>
 
             <div class="direction__signoff reveal" data-delay="2">
               <div class="direction__contact">
                 <span class="meta">For early conversations</span>
-                <a href="mailto:hello@cartograpp.com">hello@cartograpp.com</a>
+                <a href="mailto:luis@uptodown.com">luis@uptodown.com</a>
               </div>
               <div class="direction__author">
-                <strong>The Cartograpp team</strong><br>
+                <strong>The Atlas Constellation</strong><br>
                 From the people behind Uptodown<br>
                 Málaga · 2026
               </div>
@@ -809,25 +891,38 @@
         <div class="wordmark">
           <span class="wordmark__glyph" aria-hidden="true">
             <svg viewBox="0 0 32 32">
-              <circle class="ring-outer" cx="16" cy="16" r="13"/>
-              <circle class="ring-inner" cx="16" cy="16" r="7"/>
-              <path class="needle-n" d="M16 3 L17.5 16 L16 29 L14.5 16 Z"/>
-              <path class="needle-e" d="M3 16 L16 14.5 L29 16 L16 17.5 Z"/>
-              <circle class="hub" cx="16" cy="16" r="1.5"/>
+              <g class="constellation-lines" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.55" fill="none">
+                <line x1="16" y1="5" x2="10" y2="14"/>
+                <line x1="10" y1="14" x2="8" y2="20"/>
+                <line x1="8" y1="20" x2="5" y2="28"/>
+                <line x1="16" y1="5" x2="22" y2="14"/>
+                <line x1="22" y1="14" x2="24" y2="20"/>
+                <line x1="24" y1="20" x2="27" y2="28"/>
+                <line x1="10" y1="14" x2="22" y2="14"/>
+              </g>
+              <g class="constellation-stars" fill="currentColor">
+                <circle class="star apex" cx="16" cy="5" r="2"/>
+                <circle class="star" cx="10" cy="14" r="1.4"/>
+                <circle class="star" cx="22" cy="14" r="1.4"/>
+                <circle class="star" cx="8"  cy="20" r="1.2"/>
+                <circle class="star" cx="24" cy="20" r="1.2"/>
+                <circle class="star" cx="5"  cy="28" r="1.4"/>
+                <circle class="star" cx="27" cy="28" r="1.4"/>
+              </g>
             </svg>
           </span>
-          <span class="wordmark__text">Cartograpp</span>
+          <span class="wordmark__text">The Atlas Constellation</span>
         </div>
         <p class="footer__copy">
-          The umbrella company behind <a href="https://en.uptodown.com" rel="noopener">Uptodown</a>
-          and the cartography of the world&rsquo;s software. In active development —
+          The umbrella above <a href="https://en.uptodown.com" rel="noopener">Uptodown</a>
+          and the chart of the world&rsquo;s software. In active development &mdash;
           this page reflects intent and direction, not a finished product.
         </p>
       </div>
       <div class="footer__meta">
-        <span class="meta">© 2026 Cartograpp</span>
-        <span class="meta">v0.2 · preview</span>
-        <a href="mailto:hello@cartograpp.com" class="meta footer__mail">hello@cartograpp.com</a>
+        <span class="meta">© 2026 The Atlas Constellation</span>
+        <span class="meta">v0.3 · preview</span>
+        <a href="mailto:luis@uptodown.com" class="meta footer__mail">luis@uptodown.com</a>
       </div>
     </div>
   </footer>
