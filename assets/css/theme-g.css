@@ -247,6 +247,18 @@ html[data-theme="G"] .hero__title em {
 }
 html[data-theme="G"] .hero__lead { color: var(--ink); }
 html[data-theme="G"] .hero__lead strong { color: var(--sirius); font-weight: 600; }
+html[data-theme="G"] .hero__thesis {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink);
+  border-block-color: var(--hairline);
+}
+html[data-theme="G"] .hero__thesis a {
+  color: var(--sirius);
+  border-bottom-color: var(--copper-hair);
+}
+html[data-theme="G"] .hero__thesis a:hover { border-bottom-color: var(--sirius); }
 html[data-theme="G"] .hero__support { color: var(--ink-soft); }
 html[data-theme="G"] .hero__link {
   color: var(--ink);
@@ -541,6 +553,33 @@ html[data-theme="G"] .products__note {
   font-weight: 500;
 }
 html[data-theme="G"] .products__note em { color: var(--sirius); font-style: normal; }
+
+html[data-theme="G"] .verticals { border-top-color: var(--rule); }
+html[data-theme="G"] .verticals__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+}
+html[data-theme="G"] .verticals__sub { color: var(--ink-mid); }
+html[data-theme="G"] .vertical {
+  background: var(--paper-soft);
+  border-color: var(--hairline);
+}
+html[data-theme="G"] .vertical:hover {
+  border-color: var(--copper-hair);
+  background: var(--paper);
+}
+html[data-theme="G"] .vertical__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+}
+html[data-theme="G"] .vertical__desc { color: var(--ink-soft); }
+html[data-theme="G"] .vertical__tags span {
+  color: var(--ink-mid);
+  border-color: var(--rule);
+  background: var(--paper);
+}
 
 /* --- Direction / closing ---------------------------------- */
 html[data-theme="G"] .direction { border-top-color: var(--hairline); }
