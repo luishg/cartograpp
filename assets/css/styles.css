@@ -984,6 +984,7 @@ section { padding-block: var(--section-pad); position: relative; }
   transition: background 420ms var(--ease);
 }
 .product--live::before { background: var(--copper); }
+.product--beta::before { background: var(--copper-soft); }
 .product--building::before { background: var(--copper-soft); opacity: 0.55; }
 .product--horizon::before { background: var(--rule); opacity: 0.6; }
 
@@ -1016,6 +1017,11 @@ section { padding-block: var(--section-pad); position: relative; }
   color: var(--copper);
   border-color: var(--copper);
   background: var(--copper-wash);
+}
+.product__pill--beta {
+  color: var(--copper-soft);
+  border-color: var(--copper-hair);
+  background: var(--copper-glow);
 }
 .product__pill-dot {
   width: 6px; height: 6px;

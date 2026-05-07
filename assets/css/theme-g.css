@@ -475,6 +475,11 @@ html[data-theme="G"] .product--live::before {
   background: var(--sirius);
   box-shadow: 0 0 14px var(--sirius);
 }
+html[data-theme="G"] .product--beta::before {
+  background: var(--sirius);
+  opacity: 0.7;
+  box-shadow: 0 0 8px rgba(111, 174, 255, 0.4);
+}
 html[data-theme="G"] .product--building::before { background: var(--copper-deep); opacity: 0.7; }
 html[data-theme="G"] .product--horizon::before { background: var(--rule); opacity: 0.6; }
 html[data-theme="G"] .product:hover { background: var(--paper-soft); }
@@ -493,6 +498,11 @@ html[data-theme="G"] .product__pill--live {
   border-color: var(--sirius);
   background: var(--copper-wash);
   box-shadow: 0 0 14px rgba(111, 174, 255, 0.25);
+}
+html[data-theme="G"] .product__pill--beta {
+  color: var(--copper-soft);
+  border-color: var(--copper-hair);
+  background: var(--copper-glow);
 }
 html[data-theme="G"] .product__pill-dot {
   background: var(--sirius);
