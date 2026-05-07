@@ -1,60 +1,63 @@
 /* =============================================================
    THEME G — Cosmic Atlas
-   Cartographer's table at midnight. The map is the dominant
-   subject; stars are sprinkled across the background like a
-   reminder of what is being charted. Default expression of the
-   EnterAtlas brand.
+   Deep space, observed with scientific precision. Cartography
+   stays the dominant subject (contours, planes, ledgers) but
+   the entire palette, typography, and ambient treatment shift
+   to a celestial-atlas register — closer to a 19th-century
+   astronomy plate or a NASA mission datasheet than to a
+   warm-paper editorial site.
 
-   - Palette: deep midnight navy (less black than pure void) +
-     warm cartographer's copper as primary accent + a faint
-     starlight whisper. No gold, no neon — restrained and
-     editorial, like an antique star chart.
-   - Type: Instrument Serif for display (matches the editorial
-     theme A but on midnight paper) + Inter for everything else.
-   - Motifs: dominant topographic contours in the hero (the
-     cartography), a sparse, faint starfield as ambient backdrop
-     (the universe whisper). No orbital rings, no constellation
-     overlays, no nebula gradients.
-   - Light mode: warm parchment + copper contours + subtle ink
-     stars — the printed atlas at noon.
+   Calibration vs. neighbours:
+   - vs. Theme A (Editorial / warm paper / Instrument Serif):
+     opposite register. Cool indigo-violet, geometric Space
+     Grotesk, electric icy-blue accent instead of warm copper.
+   - vs. Theme E (Cyberpunk neon): restrained, scientific,
+     never glitchy. No scanlines, no chromatic aberration.
+   - The constellation overlays / orbital rings of the earlier
+     pass have not returned — cartography stays dominant.
    ============================================================= */
 
 html[data-theme="G"] {
-  /* --- Palette: midnight navy + cartographic copper -------- */
-  --paper:        #0B1224;    /* midnight ink — deep navy, not black */
-  --paper-soft:   #131C36;    /* lifted surface */
-  --paper-deep:   #07091A;    /* recessed band (foundations etc.) */
-  --hairline:     #1F2A47;    /* faint dividers */
-  --rule:         #2F3D62;    /* visible dividers */
-  --rule-strong:  #4A5A82;
+  /* --- Palette: deep space + electric icy-blue ----------- */
+  --paper:        #040621;    /* near-void, violet-blue undertone */
+  --paper-soft:   #0B1138;    /* indigo-tinged surface */
+  --paper-deep:   #02030E;    /* outer void (recessed bands) */
+  --hairline:     #1A1F50;    /* faint indigo divider */
+  --rule:         #2D3B85;    /* visible divider */
+  --rule-strong:  #475DA8;
 
-  --ink:          #ECE6D6;    /* warm parchment-on-night */
-  --ink-soft:     #BFB7A4;    /* secondary */
-  --ink-mid:      #8B8678;    /* tertiary */
-  --ink-faint:    #5E5C52;    /* labels */
+  --ink:          #EBEEFA;    /* cool starlight white (blue-tinted) */
+  --ink-soft:     #A6B0D8;
+  --ink-mid:      #6E78A8;
+  --ink-faint:    #3F476B;
 
-  /* "copper" — same warm cartographic ink as theme A's dark mode,
-     so the brand reads consistently across themes. */
-  --copper:       #D77A52;
-  --copper-soft:  #E8997A;
-  --copper-deep:  #B5532E;
-  --copper-wash:  rgba(215, 122, 82, 0.10);
-  --copper-hair:  rgba(215, 122, 82, 0.30);
-  --copper-glow:  rgba(215, 122, 82, 0.06);
+  /* "copper" reused as the primary accent — here, electric
+     icy-blue. The variable name is preserved so existing
+     selectors auto-inherit. */
+  --copper:       #6FAEFF;    /* Sirius / Vega — electric icy blue */
+  --copper-soft:  #9CCBFF;
+  --copper-deep:  #3D89F4;
+  --copper-wash:  rgba(111, 174, 255, 0.10);
+  --copper-hair:  rgba(111, 174, 255, 0.32);
+  --copper-glow:  rgba(111, 174, 255, 0.06);
 
-  --indigo:       #5E8FA9;
-  --indigo-soft:  #7CA9C0;
+  --indigo:       #C780FF;    /* secondary accent — far-violet, used sparingly */
+  --indigo-soft:  #DEAFFF;
 
   /* Custom theme tokens */
-  --midnight:     #0B1224;
-  --starlight:    #BFB7A4;     /* faint warm-white for stars */
+  --void:         #040621;
+  --sirius:       #6FAEFF;
+  --far-violet:   #C780FF;
+  --starlight:    #EBEEFA;
+  --aurora-top:   rgba(111, 174, 255, 0.10);
+  --aurora-bot:   rgba(199, 128, 255, 0.07);
 
-  --font-display: "Instrument Serif", "Iowan Old Style", "Times New Roman", Georgia, serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
   --font-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  --radius:       3px;
+  --radius:       2px;
   --section-pad:  clamp(6rem, 13vh, 10rem);
 
   color-scheme: dark;
@@ -62,50 +65,55 @@ html[data-theme="G"] {
 
 html[data-theme="G"] body { background: var(--paper); color: var(--ink); }
 
-/* Faint starfield as ambient backdrop. Layered radial gradients
-   keep it cheap and motionless — universe presence without
-   universe loudness. Stars are warm-white, not pure white. */
+/* Backdrop: layered starfield (more present than the previous
+   pass) + faint aurora ribbons at the corners. Stars sit at
+   varying sizes and brightnesses, with the largest ones haloed
+   by a soft blue glow. Deliberately motionless — this is the
+   sky as observed, not animated. */
 html[data-theme="G"] body::before {
   background-color: var(--paper);
   background-image:
-    /* Larger named stars, very few */
-    radial-gradient(1.4px 1.4px at 14% 14%, rgba(215,122,82,0.55), transparent 70%),
-    radial-gradient(1.3px 1.3px at 78% 8%,  rgba(236,230,214,0.45), transparent 70%),
-    radial-gradient(1.3px 1.3px at 6% 88%,  rgba(236,230,214,0.35), transparent 70%),
-    radial-gradient(1.3px 1.3px at 92% 64%, rgba(215,122,82,0.45), transparent 70%),
-    /* Mid stars — modest scattering */
-    radial-gradient(0.9px 0.9px at 4% 22%,  rgba(236,230,214,0.30), transparent 75%),
-    radial-gradient(0.9px 0.9px at 11% 44%, rgba(236,230,214,0.22), transparent 75%),
-    radial-gradient(0.9px 0.9px at 18% 66%, rgba(236,230,214,0.28), transparent 75%),
-    radial-gradient(0.9px 0.9px at 24% 18%, rgba(236,230,214,0.20), transparent 75%),
-    radial-gradient(0.9px 0.9px at 31% 32%, rgba(236,230,214,0.28), transparent 75%),
-    radial-gradient(0.9px 0.9px at 39% 58%, rgba(236,230,214,0.22), transparent 75%),
-    radial-gradient(0.9px 0.9px at 47% 14%, rgba(236,230,214,0.30), transparent 75%),
-    radial-gradient(0.9px 0.9px at 54% 38%, rgba(236,230,214,0.24), transparent 75%),
-    radial-gradient(0.9px 0.9px at 62% 80%, rgba(236,230,214,0.22), transparent 75%),
-    radial-gradient(0.9px 0.9px at 68% 22%, rgba(236,230,214,0.28), transparent 75%),
-    radial-gradient(0.9px 0.9px at 73% 48%, rgba(236,230,214,0.20), transparent 75%),
-    radial-gradient(0.9px 0.9px at 81% 92%, rgba(236,230,214,0.24), transparent 75%),
-    radial-gradient(0.9px 0.9px at 86% 28%, rgba(236,230,214,0.28), transparent 75%),
-    radial-gradient(0.9px 0.9px at 95% 78%, rgba(236,230,214,0.20), transparent 75%),
-    /* Far dust — very faint */
-    radial-gradient(0.55px 0.55px at 8% 6%,   rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 16% 28%, rgba(236,230,214,0.14), transparent 80%),
-    radial-gradient(0.55px 0.55px at 22% 52%, rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 28% 80%, rgba(236,230,214,0.14), transparent 80%),
-    radial-gradient(0.55px 0.55px at 34% 6%,  rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 41% 22%, rgba(236,230,214,0.14), transparent 80%),
-    radial-gradient(0.55px 0.55px at 48% 50%, rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 56% 70%, rgba(236,230,214,0.14), transparent 80%),
-    radial-gradient(0.55px 0.55px at 65% 4%,  rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 72% 36%, rgba(236,230,214,0.14), transparent 80%),
-    radial-gradient(0.55px 0.55px at 78% 60%, rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 84% 86%, rgba(236,230,214,0.14), transparent 80%),
-    radial-gradient(0.55px 0.55px at 89% 12%, rgba(236,230,214,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 96% 44%, rgba(236,230,214,0.14), transparent 80%),
-    /* Vignette and faint horizon glow at the bottom (the cartographer's lamp) */
-    radial-gradient(900px 600px at 78% -8%, rgba(94,143,169,0.05), transparent 70%),
-    radial-gradient(800px 500px at 22% 110%, rgba(215,122,82,0.05), transparent 70%);
+    /* Five "named" bright stars with a subtle halo */
+    radial-gradient(2px 2px at 14% 14%,    rgba(255,255,255,0.95), rgba(111,174,255,0.4) 35%, transparent 70%),
+    radial-gradient(1.8px 1.8px at 78% 8%, rgba(255,255,255,0.90), rgba(111,174,255,0.35) 35%, transparent 70%),
+    radial-gradient(1.6px 1.6px at 6% 88%, rgba(255,255,255,0.85), rgba(199,128,255,0.30) 35%, transparent 70%),
+    radial-gradient(1.8px 1.8px at 92% 64%, rgba(255,255,255,0.90), rgba(111,174,255,0.35) 35%, transparent 70%),
+    radial-gradient(1.6px 1.6px at 36% 72%, rgba(255,255,255,0.80), rgba(111,174,255,0.30) 35%, transparent 70%),
+    /* Bright mid stars */
+    radial-gradient(1.1px 1.1px at 4% 22%,   rgba(235,238,250,0.75), transparent 70%),
+    radial-gradient(1.1px 1.1px at 11% 44%,  rgba(235,238,250,0.65), transparent 70%),
+    radial-gradient(1.1px 1.1px at 18% 66%,  rgba(235,238,250,0.70), transparent 70%),
+    radial-gradient(1.1px 1.1px at 24% 18%,  rgba(235,238,250,0.55), transparent 70%),
+    radial-gradient(1.1px 1.1px at 31% 32%,  rgba(235,238,250,0.75), transparent 70%),
+    radial-gradient(1.1px 1.1px at 39% 58%,  rgba(235,238,250,0.65), transparent 70%),
+    radial-gradient(1.1px 1.1px at 47% 14%,  rgba(235,238,250,0.75), transparent 70%),
+    radial-gradient(1.1px 1.1px at 54% 38%,  rgba(235,238,250,0.65), transparent 70%),
+    radial-gradient(1.1px 1.1px at 62% 80%,  rgba(235,238,250,0.65), transparent 70%),
+    radial-gradient(1.1px 1.1px at 68% 22%,  rgba(235,238,250,0.75), transparent 70%),
+    radial-gradient(1.1px 1.1px at 73% 48%,  rgba(235,238,250,0.55), transparent 70%),
+    radial-gradient(1.1px 1.1px at 81% 92%,  rgba(235,238,250,0.65), transparent 70%),
+    radial-gradient(1.1px 1.1px at 86% 28%,  rgba(235,238,250,0.75), transparent 70%),
+    radial-gradient(1.1px 1.1px at 95% 78%,  rgba(235,238,250,0.65), transparent 70%),
+    /* Far dust — many small dots */
+    radial-gradient(0.65px 0.65px at 8% 6%,   rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 16% 28%, rgba(235,238,250,0.36), transparent 75%),
+    radial-gradient(0.65px 0.65px at 22% 52%, rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 28% 80%, rgba(235,238,250,0.36), transparent 75%),
+    radial-gradient(0.65px 0.65px at 34% 6%,  rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 41% 22%, rgba(235,238,250,0.36), transparent 75%),
+    radial-gradient(0.65px 0.65px at 48% 50%, rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 56% 70%, rgba(235,238,250,0.36), transparent 75%),
+    radial-gradient(0.65px 0.65px at 65% 4%,  rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 72% 36%, rgba(235,238,250,0.36), transparent 75%),
+    radial-gradient(0.65px 0.65px at 78% 60%, rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 84% 86%, rgba(235,238,250,0.36), transparent 75%),
+    radial-gradient(0.65px 0.65px at 89% 12%, rgba(235,238,250,0.40), transparent 75%),
+    radial-gradient(0.65px 0.65px at 96% 44%, rgba(235,238,250,0.36), transparent 75%),
+    /* Aurora ribbons — extremely faint, only at the corners.
+       Visual reference: magnetosphere / Webb deep field, not
+       a Vegas neon sign. */
+    radial-gradient(1200px 700px at 88% -8%, var(--aurora-top), transparent 75%),
+    radial-gradient(1000px 600px at 12% 110%, var(--aurora-bot), transparent 75%);
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: normal;
@@ -115,113 +123,147 @@ html[data-theme="G"] body::before {
   pointer-events: none;
 }
 
-html[data-theme="G"] ::selection { background: rgba(215,122,82,0.28); color: var(--ink); }
+html[data-theme="G"] ::selection { background: rgba(111, 174, 255, 0.32); color: var(--ink); }
 
 /* --- Display / typography ---------------------------------- */
 html[data-theme="G"] .display {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.018em;
-  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
   color: var(--ink);
 }
 html[data-theme="G"] .display em {
-  font-style: italic;
-  color: var(--copper);
+  font-style: normal;
+  color: var(--sirius);
   background: none;
   -webkit-background-clip: initial;
   background-clip: initial;
+  text-shadow: 0 0 24px rgba(111, 174, 255, 0.40);
 }
-html[data-theme="G"] h2.display { font-size: clamp(2.25rem, 4.6vw, 4.25rem); letter-spacing: -0.022em; }
+html[data-theme="G"] h2.display {
+  font-size: clamp(2.25rem, 4.6vw, 4rem);
+  letter-spacing: -0.028em;
+}
 
+/* Eyebrow → research-paper marker. The leading dash becomes
+   a small filled star-dot with a soft halo. */
 html[data-theme="G"] .eyebrow {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: 0.8125rem;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--sirius);
+}
+html[data-theme="G"] .eyebrow::before {
+  width: 7px;
+  height: 7px;
+  background: var(--sirius);
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(111, 174, 255, 0.6);
 }
 
 html[data-theme="G"] .meta { color: var(--ink-mid); }
 html[data-theme="G"] .mono { color: var(--ink-mid); }
 html[data-theme="G"] .lead { color: var(--ink-soft); }
 html[data-theme="G"] .body { color: var(--ink-soft); }
-html[data-theme="G"] .body strong { color: var(--ink); font-weight: 500; }
+html[data-theme="G"] .body strong { color: var(--ink); font-weight: 600; }
 
 /* --- Site chrome ------------------------------------------- */
 html[data-theme="G"] .nav.is-scrolled {
-  background: rgba(11, 18, 36, 0.78);
+  background: rgba(4, 6, 33, 0.8);
   backdrop-filter: saturate(150%) blur(20px);
   -webkit-backdrop-filter: saturate(150%) blur(20px);
   border-bottom-color: var(--hairline);
 }
-html[data-theme="G"] .nav__progress { background: var(--copper); }
+html[data-theme="G"] .nav__progress {
+  background: linear-gradient(90deg, var(--sirius), var(--far-violet));
+  box-shadow: 0 0 8px rgba(111, 174, 255, 0.6);
+}
 
 html[data-theme="G"] .wordmark__text {
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  letter-spacing: -0.005em;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
-html[data-theme="G"] .wordmark__glyph { color: var(--copper); }
+html[data-theme="G"] .wordmark__glyph { color: var(--sirius); }
+html[data-theme="G"] .wordmark__glyph .contour {
+  filter: drop-shadow(0 0 3px rgba(111, 174, 255, 0.4));
+}
 html[data-theme="G"] .wordmark__glyph .wordmark-star {
-  fill: var(--ink);
-  opacity: 0.85;
+  fill: var(--starlight);
+  filter: drop-shadow(0 0 4px rgba(111, 174, 255, 0.7));
+  opacity: 1;
 }
 
-html[data-theme="G"] .nav__links { color: var(--ink-soft); }
-html[data-theme="G"] .nav__links a:hover { color: var(--copper); }
-html[data-theme="G"] .nav__links a::after { background: var(--copper); }
+html[data-theme="G"] .nav__links { color: var(--ink-soft); font-family: var(--font-display); font-weight: 500; }
+html[data-theme="G"] .nav__links a:hover { color: var(--sirius); }
+html[data-theme="G"] .nav__links a::after { background: var(--sirius); box-shadow: 0 0 4px var(--sirius); }
 
-/* --- Hero — contours dominate, sparse stars whisper -------- */
+/* --- Hero — glowing contours over a deep starfield --------- */
 html[data-theme="G"] .hero__bg-grain {
   background:
-    radial-gradient(1300px 900px at 90% 12%, var(--copper-wash), transparent 65%),
-    radial-gradient(1100px 800px at 0% 100%, rgba(94, 143, 169, 0.08), transparent 70%);
+    radial-gradient(1200px 900px at 90% 10%, rgba(111, 174, 255, 0.10), transparent 65%),
+    radial-gradient(1000px 800px at 0% 100%, rgba(199, 128, 255, 0.07), transparent 70%);
 }
 html[data-theme="G"] .hero__bg-grid {
   background-image:
-    linear-gradient(90deg, rgba(236,230,214,0.020) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(236,230,214,0.014) 1px, transparent 1px);
-  opacity: 0.55;
+    linear-gradient(90deg, rgba(199, 211, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(199, 211, 255, 0.018) 1px, transparent 1px);
+  opacity: 0.8;
 }
 html[data-theme="G"] .hero__bg-contours {
-  color: var(--copper);
-  opacity: 0.7;
+  color: var(--sirius);
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px rgba(111, 174, 255, 0.45));
   mask-image: linear-gradient(to left, black 30%, transparent 96%);
   -webkit-mask-image: linear-gradient(to left, black 30%, transparent 96%);
 }
 html[data-theme="G"] .hero__bg-stars circle {
-  fill: var(--ink);
-  --twinkle-base: 0.5;
-  --twinkle-peak: 0.9;
+  fill: var(--starlight);
+  --twinkle-base: 0.6;
+  --twinkle-peak: 1;
 }
-html[data-theme="G"] .hero__bg-pings circle { fill: var(--copper); }
+/* The largest hero stars get a soft halo */
+html[data-theme="G"] .hero__bg-stars circle:nth-child(5),
+html[data-theme="G"] .hero__bg-stars circle:nth-child(11) {
+  filter: drop-shadow(0 0 4px rgba(111, 174, 255, 0.85));
+}
+html[data-theme="G"] .hero__bg-pings circle {
+  fill: var(--far-violet);
+  filter: drop-shadow(0 0 6px rgba(199, 128, 255, 0.7));
+}
 
 html[data-theme="G"] .hero__meta { border-bottom-color: var(--hairline); }
 html[data-theme="G"] .hero__title { color: var(--ink); }
 html[data-theme="G"] .hero__title em {
-  color: var(--copper);
-  font-style: italic;
+  color: var(--sirius);
+  font-style: normal;
+  text-shadow: 0 0 30px rgba(111, 174, 255, 0.50);
 }
 html[data-theme="G"] .hero__lead { color: var(--ink); }
-html[data-theme="G"] .hero__lead strong { color: var(--copper); }
+html[data-theme="G"] .hero__lead strong { color: var(--sirius); font-weight: 600; }
 html[data-theme="G"] .hero__support { color: var(--ink-soft); }
 html[data-theme="G"] .hero__link {
   color: var(--ink);
   border-bottom-color: var(--copper-hair);
 }
-html[data-theme="G"] .hero__link:hover { color: var(--copper); border-bottom-color: var(--copper); }
-html[data-theme="G"] .hero__year { color: var(--copper); }
+html[data-theme="G"] .hero__link:hover { color: var(--sirius); border-bottom-color: var(--sirius); }
+html[data-theme="G"] .hero__year { color: var(--sirius); }
 
 /* --- Pull-quotes / opening -------------------------------- */
 html[data-theme="G"] .opening__pullquote {
   font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
   color: var(--ink);
   border-top-color: var(--rule);
 }
-html[data-theme="G"] .opening__pullquote em { color: var(--copper); }
+html[data-theme="G"] .opening__pullquote em { color: var(--sirius); font-style: normal; }
 
 /* --- Ledger ------------------------------------------------ */
 html[data-theme="G"] .ledger {
@@ -233,41 +275,85 @@ html[data-theme="G"] .ledger__cell { border-right-color: var(--hairline); }
 html[data-theme="G"] .ledger__cell:hover { background: var(--copper-glow); }
 html[data-theme="G"] .ledger__label {
   font-family: var(--font-display);
+  font-weight: 500;
   color: var(--ink);
 }
-html[data-theme="G"] .ledger__label::before { background: var(--copper); }
+html[data-theme="G"] .ledger__label::before { background: var(--sirius); box-shadow: 0 0 4px var(--sirius); }
 html[data-theme="G"] .ledger dd { color: var(--ink-soft); }
 
-/* --- Schematic / map figure ------------------------------- */
+/* --- Schematic / star chart --------------------------------
+   Backdrop: a polar coordinate grid (concentric circles +
+   radial spokes). It evokes a celestial-sphere chart without
+   relying on orbital-ring metaphors in the layout itself. */
 html[data-theme="G"] .schematic {
   background: var(--paper-soft);
   border-color: var(--rule);
+  position: relative;
 }
 html[data-theme="G"] .schematic::before {
-  background-image: radial-gradient(circle at 50% 50%,
-    transparent 38%, rgba(215,122,82,0.07) 38.5%, transparent 39%,
-    transparent 48%, rgba(215,122,82,0.06) 48.5%, transparent 49%,
-    transparent 58%, rgba(215,122,82,0.05) 58.5%, transparent 59%,
-    transparent 68%, rgba(215,122,82,0.04) 68.5%, transparent 69%);
+  background-image:
+    /* Concentric rings */
+    radial-gradient(circle at 50% 50%,
+      transparent 18%, rgba(111,174,255,0.13) 18.4%, transparent 18.8%,
+      transparent 30%, rgba(111,174,255,0.10) 30.4%, transparent 30.8%,
+      transparent 45%, rgba(111,174,255,0.08) 45.4%, transparent 45.8%,
+      transparent 62%, rgba(111,174,255,0.06) 62.4%, transparent 62.8%,
+      transparent 80%, rgba(111,174,255,0.04) 80.4%, transparent 80.8%);
+  opacity: 0.85;
+}
+/* Radial spokes — a separate layer via the schematic's existing
+   ::before is already used; add via a complementary gradient. */
+html[data-theme="G"] .schematic {
+  background-image:
+    /* 12 spokes from centre */
+    conic-gradient(from -90deg at 50% 50%,
+      transparent 0deg, rgba(111,174,255,0.05) 0.25deg, transparent 0.5deg,
+      transparent 30deg, rgba(111,174,255,0.05) 30.25deg, transparent 30.5deg,
+      transparent 60deg, rgba(111,174,255,0.05) 60.25deg, transparent 60.5deg,
+      transparent 90deg, rgba(111,174,255,0.05) 90.25deg, transparent 90.5deg,
+      transparent 120deg, rgba(111,174,255,0.05) 120.25deg, transparent 120.5deg,
+      transparent 150deg, rgba(111,174,255,0.05) 150.25deg, transparent 150.5deg,
+      transparent 180deg, rgba(111,174,255,0.05) 180.25deg, transparent 180.5deg,
+      transparent 210deg, rgba(111,174,255,0.05) 210.25deg, transparent 210.5deg,
+      transparent 240deg, rgba(111,174,255,0.05) 240.25deg, transparent 240.5deg,
+      transparent 270deg, rgba(111,174,255,0.05) 270.25deg, transparent 270.5deg,
+      transparent 300deg, rgba(111,174,255,0.05) 300.25deg, transparent 300.5deg,
+      transparent 330deg, rgba(111,174,255,0.05) 330.25deg, transparent 330.5deg,
+      transparent 360deg);
 }
 html[data-theme="G"] .schematic__head { border-bottom-color: var(--hairline); }
-html[data-theme="G"] .schematic__mark { color: var(--copper); }
-html[data-theme="G"] .schematic__mark .wordmark-star { fill: var(--ink); }
-html[data-theme="G"] .schematic__name { font-family: var(--font-display); color: var(--ink); }
-html[data-theme="G"] .schematic__sub { color: var(--ink-mid); border-left-color: var(--rule); }
-html[data-theme="G"] .schematic__ref { color: var(--copper); }
+html[data-theme="G"] .schematic__mark { color: var(--sirius); }
+html[data-theme="G"] .schematic__mark .wordmark-star {
+  fill: var(--starlight);
+  filter: drop-shadow(0 0 4px rgba(111, 174, 255, 0.6));
+}
+html[data-theme="G"] .schematic__name { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+html[data-theme="G"] .schematic__sub { color: var(--ink-mid); border-left-color: var(--rule); font-family: var(--font-mono); }
+html[data-theme="G"] .schematic__ref { color: var(--sirius); }
 
 html[data-theme="G"] .plane { border-right-color: var(--hairline); }
 html[data-theme="G"] .plane__head { border-bottom-color: var(--rule); }
 html[data-theme="G"] .plane__head::after {
-  background: var(--copper);
-  box-shadow: 0 0 0 4px var(--paper-soft);
+  background: var(--sirius);
+  box-shadow:
+    0 0 0 4px var(--paper-soft),
+    0 0 16px rgba(111, 174, 255, 0.7);
   width: 9px; height: 9px;
 }
-html[data-theme="G"] .plane__title { font-family: var(--font-display); color: var(--ink); }
-html[data-theme="G"] .plane__sub { font-family: var(--font-display); color: var(--ink); font-style: italic; }
-html[data-theme="G"] .plane__list li { color: var(--ink-soft); }
-html[data-theme="G"] .plane__list li::before { background: var(--copper-soft); }
+html[data-theme="G"] .plane__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+html[data-theme="G"] .plane__sub {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--sirius);
+}
+html[data-theme="G"] .plane__list li { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.85rem; }
+html[data-theme="G"] .plane__list li::before { background: var(--sirius); width: 8px; opacity: 0.85; }
 
 /* --- Foundations + stats ---------------------------------- */
 html[data-theme="G"] .foundations {
@@ -277,7 +363,7 @@ html[data-theme="G"] .foundations {
 }
 html[data-theme="G"] .foundations::before {
   background-image:
-    repeating-linear-gradient(0deg, transparent 0 38px, rgba(236,230,214,0.025) 38px 39px);
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(199, 211, 255, 0.025) 38px 39px);
 }
 html[data-theme="G"] .stats {
   background: var(--paper-soft);
@@ -285,22 +371,39 @@ html[data-theme="G"] .stats {
   border-bottom-color: var(--rule);
 }
 html[data-theme="G"] .stats__cell { border-right-color: var(--hairline); }
-html[data-theme="G"] .stats__value { color: var(--ink); font-family: var(--font-display); }
-html[data-theme="G"] .stats__num em { color: var(--copper); font-style: italic; }
+html[data-theme="G"] .stats__value { color: var(--ink); font-family: var(--font-display); font-weight: 700; }
+html[data-theme="G"] .stats__num em {
+  color: var(--sirius);
+  font-style: normal;
+  text-shadow: 0 0 18px rgba(111, 174, 255, 0.4);
+}
 html[data-theme="G"] .stats__unit { color: var(--ink-soft); }
 html[data-theme="G"] .stats dd { color: var(--ink-soft); }
-html[data-theme="G"] .foundations__note { color: var(--ink); font-family: var(--font-display); }
-html[data-theme="G"] .foundations__note em { color: var(--copper); font-style: italic; }
+html[data-theme="G"] .foundations__note {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+}
+html[data-theme="G"] .foundations__note em { color: var(--sirius); font-style: normal; }
 
 /* --- Surfaces --------------------------------------------- */
 html[data-theme="G"] .service-list { border-top-color: var(--rule); }
 html[data-theme="G"] .service-row { border-bottom-color: var(--hairline); }
-html[data-theme="G"] .service-row::before { background: var(--copper); }
-html[data-theme="G"] .service-row:hover {
-  background: linear-gradient(to right, rgba(215,122,82,0.06), transparent 55%);
+html[data-theme="G"] .service-row::before {
+  background: var(--sirius);
+  box-shadow: 0 0 8px var(--sirius);
 }
-html[data-theme="G"] .service-row__title h3 { color: var(--ink); font-family: var(--font-display); }
-html[data-theme="G"] .service-row__title .meta { color: var(--ink-mid); }
+html[data-theme="G"] .service-row:hover {
+  background: linear-gradient(to right, rgba(111, 174, 255, 0.07), transparent 55%);
+}
+html[data-theme="G"] .service-row__title h3 {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+html[data-theme="G"] .service-row__title .meta { color: var(--sirius); font-family: var(--font-mono); }
 html[data-theme="G"] .service-row__body p { color: var(--ink-soft); }
 html[data-theme="G"] .service-row__tags span {
   background: var(--paper-soft);
@@ -327,9 +430,17 @@ html[data-theme="G"] .principle {
   border-right-color: var(--hairline);
   border-bottom-color: var(--hairline);
 }
-html[data-theme="G"] .principle::before { background: var(--copper); }
+html[data-theme="G"] .principle::before {
+  background: var(--sirius);
+  box-shadow: 0 0 10px var(--sirius);
+}
 html[data-theme="G"] .principle:hover { background: var(--copper-glow); }
-html[data-theme="G"] .principle__title { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .principle__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
 html[data-theme="G"] .principle__body { color: var(--ink-soft); }
 
 /* --- Audiences -------------------------------------------- */
@@ -342,9 +453,16 @@ html[data-theme="G"] .audience {
   border-right-color: var(--hairline);
   border-bottom-color: var(--hairline);
 }
-html[data-theme="G"] .audience::before { background: var(--copper); }
+html[data-theme="G"] .audience::before {
+  background: var(--sirius);
+  box-shadow: 0 0 6px var(--sirius);
+}
 html[data-theme="G"] .audience:hover { background: var(--paper); }
-html[data-theme="G"] .audience h3 { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .audience h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+}
 html[data-theme="G"] .audience p { color: var(--ink-soft); }
 
 /* --- Products --------------------------------------------- */
@@ -353,7 +471,10 @@ html[data-theme="G"] .product {
   border-bottom-color: var(--hairline);
 }
 html[data-theme="G"] .product::before { background: var(--rule); }
-html[data-theme="G"] .product--live::before { background: var(--copper); }
+html[data-theme="G"] .product--live::before {
+  background: var(--sirius);
+  box-shadow: 0 0 14px var(--sirius);
+}
 html[data-theme="G"] .product--building::before { background: var(--copper-deep); opacity: 0.7; }
 html[data-theme="G"] .product--horizon::before { background: var(--rule); opacity: 0.6; }
 html[data-theme="G"] .product:hover { background: var(--paper-soft); }
@@ -365,19 +486,26 @@ html[data-theme="G"] .product__pill {
   background: var(--paper-soft);
   border-color: var(--rule);
   color: var(--ink-mid);
+  font-family: var(--font-mono);
 }
 html[data-theme="G"] .product__pill--live {
-  color: var(--copper);
-  border-color: var(--copper);
+  color: var(--sirius);
+  border-color: var(--sirius);
   background: var(--copper-wash);
+  box-shadow: 0 0 14px rgba(111, 174, 255, 0.25);
 }
 html[data-theme="G"] .product__pill-dot {
-  background: var(--copper);
-  box-shadow: 0 0 0 3px var(--copper-wash);
+  background: var(--sirius);
+  box-shadow: 0 0 0 3px var(--copper-wash), 0 0 8px var(--sirius);
 }
 html[data-theme="G"] .product__since { color: var(--ink-mid); }
-html[data-theme="G"] .product--live .product__since { color: var(--copper); }
-html[data-theme="G"] .product__name { font-family: var(--font-display); color: var(--ink); }
+html[data-theme="G"] .product--live .product__since { color: var(--sirius); }
+html[data-theme="G"] .product__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.018em;
+}
 html[data-theme="G"] .product--building .product__name { color: var(--ink-soft); }
 html[data-theme="G"] .product--horizon .product__name { color: var(--ink-mid); }
 html[data-theme="G"] .product__desc { color: var(--ink-soft); }
@@ -386,9 +514,13 @@ html[data-theme="G"] .product__link {
   color: var(--ink);
   border-bottom-color: var(--copper-hair);
 }
-html[data-theme="G"] .product__link:hover { color: var(--copper); border-bottom-color: var(--copper); }
-html[data-theme="G"] .products__note { color: var(--ink); font-family: var(--font-display); }
-html[data-theme="G"] .products__note em { color: var(--copper); font-style: italic; }
+html[data-theme="G"] .product__link:hover { color: var(--sirius); border-bottom-color: var(--sirius); }
+html[data-theme="G"] .products__note {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+html[data-theme="G"] .products__note em { color: var(--sirius); font-style: normal; }
 
 /* --- Direction / closing ---------------------------------- */
 html[data-theme="G"] .direction { border-top-color: var(--hairline); }
@@ -397,11 +529,12 @@ html[data-theme="G"] .direction__signoff { border-top-color: var(--hairline); }
 html[data-theme="G"] .direction__contact .meta { color: var(--ink-mid); }
 html[data-theme="G"] .direction__contact a {
   font-family: var(--font-display);
+  font-weight: 500;
   color: var(--ink);
   border-bottom-color: var(--copper-hair);
 }
-html[data-theme="G"] .direction__contact a:hover { color: var(--copper); border-bottom-color: var(--copper); }
-html[data-theme="G"] .direction__author { color: var(--ink-mid); }
+html[data-theme="G"] .direction__contact a:hover { color: var(--sirius); border-bottom-color: var(--sirius); }
+html[data-theme="G"] .direction__author { color: var(--ink-mid); font-family: var(--font-mono); }
 html[data-theme="G"] .direction__author strong { color: var(--ink-soft); }
 
 /* --- Footer ------------------------------------------------ */
@@ -411,32 +544,33 @@ html[data-theme="G"] .footer__copy a {
   color: var(--ink);
   border-bottom-color: var(--copper-hair);
 }
-html[data-theme="G"] .footer__copy a:hover { color: var(--copper); border-bottom-color: var(--copper); }
-html[data-theme="G"] .footer__mail:hover { color: var(--copper); }
+html[data-theme="G"] .footer__copy a:hover { color: var(--sirius); border-bottom-color: var(--sirius); }
+html[data-theme="G"] .footer__mail:hover { color: var(--sirius); }
 
 /* --- Theme picker chrome ---------------------------------- */
 html[data-theme="G"] .theme-picker__trigger {
-  background: rgba(19, 28, 54, 0.6);
+  background: rgba(11, 17, 56, 0.6);
   border-color: var(--hairline);
   color: var(--ink-soft);
+  font-family: var(--font-display);
 }
 html[data-theme="G"] .theme-picker__trigger:hover {
   border-color: var(--rule);
   color: var(--ink);
 }
-html[data-theme="G"] .theme-picker__trigger[aria-expanded="true"] { border-color: var(--copper); }
-html[data-theme="G"] .theme-picker__dot { background: var(--copper); }
-html[data-theme="G"] .theme-picker__label-letter { color: var(--copper); }
+html[data-theme="G"] .theme-picker__trigger[aria-expanded="true"] { border-color: var(--sirius); }
+html[data-theme="G"] .theme-picker__dot { background: var(--sirius); box-shadow: 0 0 8px var(--sirius); }
+html[data-theme="G"] .theme-picker__label-letter { color: var(--sirius); font-family: var(--font-mono); }
 html[data-theme="G"] .theme-picker__menu {
-  background: rgba(19, 28, 54, 0.96);
+  background: rgba(11, 17, 56, 0.96);
   border-color: var(--hairline);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   box-shadow:
-    0 12px 40px -12px rgba(0,0,0,0.6),
-    0 2px 8px -4px rgba(0,0,0,0.4);
+    0 14px 44px -12px rgba(0, 0, 0, 0.7),
+    0 2px 8px -4px rgba(0, 0, 0, 0.5);
 }
-html[data-theme="G"] .theme-picker__option-letter { color: var(--copper); }
+html[data-theme="G"] .theme-picker__option-letter { color: var(--sirius); font-family: var(--font-mono); }
 html[data-theme="G"] .theme-picker__option-name { color: var(--ink); }
 html[data-theme="G"] .theme-picker__option-sub { color: var(--ink-mid); }
 html[data-theme="G"] .theme-picker__option:hover,
@@ -444,97 +578,146 @@ html[data-theme="G"] .theme-picker__option:focus-visible { background: var(--cop
 html[data-theme="G"] .theme-picker__option[aria-selected="true"] { background: var(--copper-wash); }
 
 html[data-theme="G"] .mode-toggle {
-  background: rgba(19, 28, 54, 0.5);
+  background: rgba(11, 17, 56, 0.5);
   border-color: var(--hairline);
   color: var(--ink-soft);
 }
-html[data-theme="G"] .mode-toggle:hover { color: var(--copper); border-color: var(--rule); }
+html[data-theme="G"] .mode-toggle:hover { color: var(--sirius); border-color: var(--rule); }
 
 /* =============================================================
    THEME G — Light mode
-   The printed atlas at noon. Warm parchment + copper contours
-   + very faint ink stars. Same brand vocabulary, daytime light.
+   The 19th-century scientific astronomy plate. Cool blue-tinted
+   parchment + deep indigo ink + faint celestial markings. Same
+   sci-fi-cartography vocabulary, daylight reading. Distinctly
+   colder than Theme A's warm cream.
    ============================================================= */
 html[data-theme="G"][data-mode="light"] {
-  --paper:        #F5EFE0;
-  --paper-soft:   #FCF8EB;
-  --paper-deep:   #ECE3CC;
-  --hairline:     #DAD2BB;
-  --rule:         #BCB29A;
-  --rule-strong:  #8E8669;
+  --paper:        #EDF0FA;     /* cool icy parchment */
+  --paper-soft:   #FFFFFF;
+  --paper-deep:   #DEE3F0;
+  --hairline:     #CDD3E5;
+  --rule:         #95A0C5;
+  --rule-strong:  #6573A0;
 
-  --ink:          #18223A;
-  --ink-soft:     #3B4566;
-  --ink-mid:      #6B6F84;
-  --ink-faint:    #9D9C90;
+  --ink:          #0B1138;     /* deep indigo, never warm-black */
+  --ink-soft:     #2D3B85;
+  --ink-mid:      #5C6BA0;
+  --ink-faint:    #8A93B8;
 
-  --copper:       #B5532E;
-  --copper-soft:  #D17A52;
-  --copper-deep:  #8C3F22;
-  --copper-wash:  rgba(181, 83, 46, 0.07);
-  --copper-hair:  rgba(181, 83, 46, 0.22);
-  --copper-glow:  rgba(181, 83, 46, 0.04);
+  --copper:       #2D5DC4;     /* deep ink-blue (vintage astronomical pen) */
+  --copper-soft:  #5985E8;
+  --copper-deep:  #1F47A0;
+  --copper-wash:  rgba(45, 93, 196, 0.08);
+  --copper-hair:  rgba(45, 93, 196, 0.30);
+  --copper-glow:  rgba(45, 93, 196, 0.05);
 
-  --indigo:       #1F3A4D;
-  --indigo-soft:  #3F5E76;
+  --indigo:       #7B45D4;     /* secondary far-violet, dimmed for paper */
+  --indigo-soft:  #9B6CE8;
 
-  --midnight:     #18223A;
-  --starlight:    #3B4566;
+  --sirius:       #2D5DC4;
+  --far-violet:   #7B45D4;
+  --starlight:    #0B1138;
+  --aurora-top:   rgba(45, 93, 196, 0.06);
+  --aurora-bot:   rgba(123, 69, 212, 0.05);
 
   color-scheme: light;
 }
 
-/* Light mode: faint ink stars on warm parchment, dialed back
-   even further than dark mode — the atlas is on a desk. */
+/* Light mode backdrop: faint ink stars on cool parchment. The
+   plate is being read indoors; the sky is still implied. */
 html[data-theme="G"][data-mode="light"] body::before {
   background-color: var(--paper);
   background-image:
-    radial-gradient(1.3px 1.3px at 14% 14%, rgba(181,83,46,0.55), transparent 75%),
-    radial-gradient(1.3px 1.3px at 78% 8%,  rgba(24,34,58,0.45),  transparent 75%),
-    radial-gradient(1.3px 1.3px at 6% 88%,  rgba(24,34,58,0.40),  transparent 75%),
-    radial-gradient(1.3px 1.3px at 92% 64%, rgba(181,83,46,0.45), transparent 75%),
-    radial-gradient(0.85px 0.85px at 4% 22%,  rgba(24,34,58,0.22), transparent 80%),
-    radial-gradient(0.85px 0.85px at 11% 44%, rgba(24,34,58,0.18), transparent 80%),
-    radial-gradient(0.85px 0.85px at 18% 66%, rgba(24,34,58,0.20), transparent 80%),
-    radial-gradient(0.85px 0.85px at 24% 18%, rgba(24,34,58,0.16), transparent 80%),
-    radial-gradient(0.85px 0.85px at 31% 32%, rgba(24,34,58,0.20), transparent 80%),
-    radial-gradient(0.85px 0.85px at 39% 58%, rgba(24,34,58,0.16), transparent 80%),
-    radial-gradient(0.85px 0.85px at 47% 14%, rgba(24,34,58,0.22), transparent 80%),
-    radial-gradient(0.85px 0.85px at 54% 38%, rgba(24,34,58,0.18), transparent 80%),
-    radial-gradient(0.85px 0.85px at 62% 80%, rgba(24,34,58,0.16), transparent 80%),
-    radial-gradient(0.85px 0.85px at 68% 22%, rgba(24,34,58,0.20), transparent 80%),
-    radial-gradient(0.85px 0.85px at 73% 48%, rgba(24,34,58,0.16), transparent 80%),
-    radial-gradient(0.85px 0.85px at 81% 92%, rgba(24,34,58,0.18), transparent 80%),
-    radial-gradient(0.85px 0.85px at 86% 28%, rgba(24,34,58,0.20), transparent 80%),
-    radial-gradient(0.85px 0.85px at 95% 78%, rgba(24,34,58,0.16), transparent 80%),
-    radial-gradient(0.55px 0.55px at 8% 6%,   rgba(24,34,58,0.12), transparent 85%),
-    radial-gradient(0.55px 0.55px at 22% 52%, rgba(24,34,58,0.12), transparent 85%),
-    radial-gradient(0.55px 0.55px at 41% 22%, rgba(24,34,58,0.12), transparent 85%),
-    radial-gradient(0.55px 0.55px at 56% 70%, rgba(24,34,58,0.12), transparent 85%),
-    radial-gradient(0.55px 0.55px at 72% 36%, rgba(24,34,58,0.12), transparent 85%),
-    radial-gradient(0.55px 0.55px at 89% 12%, rgba(24,34,58,0.12), transparent 85%),
-    radial-gradient(0.55px 0.55px at 96% 44%, rgba(24,34,58,0.12), transparent 85%);
+    radial-gradient(1.5px 1.5px at 14% 14%, rgba(45, 93, 196, 0.7),  transparent 75%),
+    radial-gradient(1.5px 1.5px at 78% 8%,  rgba(11, 17, 56, 0.55),  transparent 75%),
+    radial-gradient(1.4px 1.4px at 6% 88%,  rgba(11, 17, 56, 0.50),  transparent 75%),
+    radial-gradient(1.4px 1.4px at 92% 64%, rgba(45, 93, 196, 0.55), transparent 75%),
+    radial-gradient(1.4px 1.4px at 36% 72%, rgba(11, 17, 56, 0.45),  transparent 75%),
+    radial-gradient(0.9px 0.9px at 4% 22%,  rgba(11, 17, 56, 0.32), transparent 80%),
+    radial-gradient(0.9px 0.9px at 11% 44%, rgba(11, 17, 56, 0.28), transparent 80%),
+    radial-gradient(0.9px 0.9px at 18% 66%, rgba(11, 17, 56, 0.30), transparent 80%),
+    radial-gradient(0.9px 0.9px at 24% 18%, rgba(11, 17, 56, 0.24), transparent 80%),
+    radial-gradient(0.9px 0.9px at 31% 32%, rgba(11, 17, 56, 0.30), transparent 80%),
+    radial-gradient(0.9px 0.9px at 39% 58%, rgba(11, 17, 56, 0.26), transparent 80%),
+    radial-gradient(0.9px 0.9px at 47% 14%, rgba(11, 17, 56, 0.32), transparent 80%),
+    radial-gradient(0.9px 0.9px at 54% 38%, rgba(11, 17, 56, 0.26), transparent 80%),
+    radial-gradient(0.9px 0.9px at 62% 80%, rgba(11, 17, 56, 0.24), transparent 80%),
+    radial-gradient(0.9px 0.9px at 68% 22%, rgba(11, 17, 56, 0.30), transparent 80%),
+    radial-gradient(0.9px 0.9px at 73% 48%, rgba(11, 17, 56, 0.24), transparent 80%),
+    radial-gradient(0.9px 0.9px at 81% 92%, rgba(11, 17, 56, 0.26), transparent 80%),
+    radial-gradient(0.9px 0.9px at 86% 28%, rgba(11, 17, 56, 0.30), transparent 80%),
+    radial-gradient(0.9px 0.9px at 95% 78%, rgba(11, 17, 56, 0.24), transparent 80%),
+    radial-gradient(0.6px 0.6px at 8% 6%,   rgba(11, 17, 56, 0.18), transparent 85%),
+    radial-gradient(0.6px 0.6px at 22% 52%, rgba(11, 17, 56, 0.18), transparent 85%),
+    radial-gradient(0.6px 0.6px at 41% 22%, rgba(11, 17, 56, 0.18), transparent 85%),
+    radial-gradient(0.6px 0.6px at 56% 70%, rgba(11, 17, 56, 0.18), transparent 85%),
+    radial-gradient(0.6px 0.6px at 72% 36%, rgba(11, 17, 56, 0.18), transparent 85%),
+    radial-gradient(0.6px 0.6px at 89% 12%, rgba(11, 17, 56, 0.18), transparent 85%),
+    radial-gradient(0.6px 0.6px at 96% 44%, rgba(11, 17, 56, 0.18), transparent 85%),
+    /* Subtle aurora wash — daylit version of the same idea */
+    radial-gradient(900px 600px at 88% -8%, var(--aurora-top), transparent 75%),
+    radial-gradient(800px 500px at 12% 110%, var(--aurora-bot), transparent 75%);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 html[data-theme="G"][data-mode="light"] body { color: var(--ink); }
+html[data-theme="G"][data-mode="light"] .display em { text-shadow: none; }
+html[data-theme="G"][data-mode="light"] .hero__title em { text-shadow: none; }
+html[data-theme="G"][data-mode="light"] .hero__bg-contours {
+  filter: none;
+  opacity: 0.55;
+}
+html[data-theme="G"][data-mode="light"] .hero__bg-stars circle { fill: var(--ink); }
+html[data-theme="G"][data-mode="light"] .hero__bg-stars circle:nth-child(5),
+html[data-theme="G"][data-mode="light"] .hero__bg-stars circle:nth-child(11) {
+  filter: none;
+}
+html[data-theme="G"][data-mode="light"] .wordmark__glyph .contour { filter: none; }
+html[data-theme="G"][data-mode="light"] .wordmark__glyph .wordmark-star {
+  fill: var(--copper);
+  filter: none;
+}
+html[data-theme="G"][data-mode="light"] .schematic__mark .wordmark-star {
+  fill: var(--copper);
+  filter: none;
+}
 html[data-theme="G"][data-mode="light"] .nav.is-scrolled {
-  background: rgba(245, 239, 224, 0.85);
+  background: rgba(237, 240, 250, 0.85);
   border-bottom-color: var(--hairline);
 }
 html[data-theme="G"][data-mode="light"] .hero__bg-grid {
   background-image:
-    linear-gradient(90deg, rgba(24,34,58,0.025) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(24,34,58,0.018) 1px, transparent 1px);
-}
-html[data-theme="G"][data-mode="light"] .hero__bg-stars circle {
-  fill: var(--ink-soft);
-  --twinkle-base: 0.35;
-  --twinkle-peak: 0.6;
+    linear-gradient(90deg, rgba(11, 17, 56, 0.025) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(11, 17, 56, 0.018) 1px, transparent 1px);
 }
 html[data-theme="G"][data-mode="light"] .schematic { background: var(--paper-soft); }
-html[data-theme="G"][data-mode="light"] .schematic__head { border-bottom-color: var(--hairline); }
+html[data-theme="G"][data-mode="light"] .schematic::before {
+  background-image:
+    radial-gradient(circle at 50% 50%,
+      transparent 18%, rgba(45,93,196,0.10) 18.4%, transparent 18.8%,
+      transparent 30%, rgba(45,93,196,0.08) 30.4%, transparent 30.8%,
+      transparent 45%, rgba(45,93,196,0.06) 45.4%, transparent 45.8%,
+      transparent 62%, rgba(45,93,196,0.05) 62.4%, transparent 62.8%,
+      transparent 80%, rgba(45,93,196,0.04) 80.4%, transparent 80.8%);
+}
+html[data-theme="G"][data-mode="light"] .schematic {
+  background-image:
+    conic-gradient(from -90deg at 50% 50%,
+      transparent 0deg, rgba(45,93,196,0.04) 0.25deg, transparent 0.5deg,
+      transparent 30deg, rgba(45,93,196,0.04) 30.25deg, transparent 30.5deg,
+      transparent 60deg, rgba(45,93,196,0.04) 60.25deg, transparent 60.5deg,
+      transparent 90deg, rgba(45,93,196,0.04) 90.25deg, transparent 90.5deg,
+      transparent 120deg, rgba(45,93,196,0.04) 120.25deg, transparent 120.5deg,
+      transparent 150deg, rgba(45,93,196,0.04) 150.25deg, transparent 150.5deg,
+      transparent 180deg, rgba(45,93,196,0.04) 180.25deg, transparent 180.5deg,
+      transparent 210deg, rgba(45,93,196,0.04) 210.25deg, transparent 210.5deg,
+      transparent 240deg, rgba(45,93,196,0.04) 240.25deg, transparent 240.5deg,
+      transparent 270deg, rgba(45,93,196,0.04) 270.25deg, transparent 270.5deg,
+      transparent 300deg, rgba(45,93,196,0.04) 300.25deg, transparent 300.5deg,
+      transparent 330deg, rgba(45,93,196,0.04) 330.25deg, transparent 330.5deg,
+      transparent 360deg);
+}
 html[data-theme="G"][data-mode="light"] .ledger { background: var(--paper-soft); }
 html[data-theme="G"][data-mode="light"] .stats { background: var(--paper-soft); }
 html[data-theme="G"][data-mode="light"] .principles__grid { background: var(--paper-soft); }
@@ -547,11 +730,16 @@ html[data-theme="G"][data-mode="light"] .theme-picker__menu,
 html[data-theme="G"][data-mode="light"] .mode-toggle {
   background: rgba(255, 255, 255, 0.85);
 }
+/* Pings in light mode dial down the violet glow — paper, not screen */
+html[data-theme="G"][data-mode="light"] .hero__bg-pings circle {
+  fill: var(--copper-deep);
+  filter: none;
+}
 
 /* --- Reduced-motion: kill the twinkle, keep the chart -------- */
 @media (prefers-reduced-motion: reduce) {
   html[data-theme="G"] .hero__bg-stars circle {
     animation: none !important;
-    opacity: 0.6 !important;
+    opacity: 0.7 !important;
   }
 }
