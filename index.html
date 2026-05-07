@@ -27,8 +27,8 @@
       var d = document.documentElement;
       d.classList.replace('no-js','js');
       try {
-        var t = localStorage.getItem('atlas:theme');
-        var m = localStorage.getItem('atlas:mode');
+        var t = localStorage.getItem('enteratlas:theme');
+        var m = localStorage.getItem('enteratlas:mode');
         if (t && /^[ABCDEFG]$/.test(t)) d.setAttribute('data-theme', t);
         if (m === 'dark' || m === 'light') d.setAttribute('data-mode', m);
       } catch(e){}

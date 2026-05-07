@@ -49,7 +49,7 @@
     const setTheme = (theme) => {
       if (!THEMES[theme]) return;
       root.setAttribute('data-theme', theme);
-      try { localStorage.setItem('atlas:theme', theme); } catch(e) {}
+      try { localStorage.setItem('enteratlas:theme', theme); } catch(e) {}
       renderActive(theme);
     };
 
@@ -111,19 +111,26 @@
   }
 
   // Mode toggle (light/dark)
+  // Only persist on explicit user click — initial application reads
+  // from data-mode (which the inline head script already aligned with
+  // either localStorage or the HTML default). Auto-writing on load
+  // would lock first-time visitors into whatever the runtime default
+  // happened to be at their first visit, defeating later changes.
   const modeToggle = document.querySelector('[data-mode-toggle]');
   if (modeToggle) {
-    const setMode = (mode) => {
+    const applyMode = (mode, persist) => {
       root.setAttribute('data-mode', mode);
-      try { localStorage.setItem('atlas:mode', mode); } catch(e) {}
+      if (persist) {
+        try { localStorage.setItem('enteratlas:mode', mode); } catch(e) {}
+      }
       modeToggle.setAttribute('aria-label',
         mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     };
     modeToggle.addEventListener('click', () => {
       const current = root.getAttribute('data-mode') === 'dark' ? 'dark' : 'light';
-      setMode(current === 'dark' ? 'light' : 'dark');
+      applyMode(current === 'dark' ? 'light' : 'dark', true);
     });
-    setMode(root.getAttribute('data-mode') === 'dark' ? 'dark' : 'light');
+    applyMode(root.getAttribute('data-mode') === 'dark' ? 'dark' : 'light', false);
   }
 
   /* -----------------------------------------------------------
