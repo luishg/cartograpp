@@ -85,7 +85,7 @@ html[data-theme="B"] .wordmark__text {
   font-weight: 700;
   letter-spacing: -0.022em;
 }
-html[data-theme="B"] .wordmark__glyph .constellation-lines line { stroke-width: 1.4; }
+html[data-theme="B"] .wordmark__glyph .contour { stroke-width: 1.4; }
 
 html[data-theme="B"] .nav.is-scrolled {
   background: rgba(250, 250, 247, 0.78);
@@ -93,7 +93,7 @@ html[data-theme="B"] .nav.is-scrolled {
 
 /* --- Hero -------------------------------------------------- */
 html[data-theme="B"] .hero__bg-grid,
-html[data-theme="B"] .hero__bg-constellation { display: none; }
+html[data-theme="B"] .hero__bg-contours { display: none; }
 html[data-theme="B"] .hero__bg-grain {
   background:
     radial-gradient(60% 55% at 78% 20%, rgba(107, 87, 217, 0.18), transparent 70%),

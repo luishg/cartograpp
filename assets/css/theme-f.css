@@ -138,15 +138,11 @@ html[data-theme="F"] .wordmark__text {
   color: var(--ink);
   text-shadow: 2px 2px 0 var(--rust);
 }
-html[data-theme="F"] .wordmark__glyph .constellation-lines line {
-  stroke: var(--teal);
-  stroke-width: 1.6;
-  opacity: 0.55;
-}
-html[data-theme="F"] .wordmark__glyph .constellation-stars .star { fill: var(--mustard); }
-html[data-theme="F"] .wordmark__glyph .constellation-stars .star.apex { fill: var(--rust); }
-/* one star deliberately dim — the damaged-sky motif */
-html[data-theme="F"] .wordmark__glyph .constellation-stars .star:nth-child(6) { fill: var(--teal); opacity: 0.25; }
+html[data-theme="F"] .wordmark__glyph .contour { stroke-width: 1.6; }
+html[data-theme="F"] .wordmark__glyph .c-1 { stroke: var(--rust); opacity: 1; }
+html[data-theme="F"] .wordmark__glyph .c-2 { stroke: var(--teal); opacity: 0.85; }
+html[data-theme="F"] .wordmark__glyph .c-3 { stroke: var(--mustard); opacity: 1; }
+html[data-theme="F"] .wordmark__glyph .wordmark-star { fill: var(--mustard); }
 
 html[data-theme="F"] .nav__links {
   font-family: var(--font-body);
@@ -188,7 +184,7 @@ html[data-theme="F"] .theme-picker__dot { background: var(--rust); border-radius
 html[data-theme="F"] .theme-picker__label-letter { color: var(--rust); }
 
 /* --- Hero -------------------------------------------------- */
-html[data-theme="F"] .hero__bg-constellation { display: none; }
+html[data-theme="F"] .hero__bg-contours { display: none; }
 html[data-theme="F"] .hero__bg-grain {
   background:
     radial-gradient(70% 60% at 80% 12%, rgba(221, 181, 68, 0.32), transparent 70%),

@@ -1,5 +1,5 @@
 /* =============================================================
-   The Atlas Constellation — main.js
+   EnterAtlas — main.js
    - Theme switcher (A–G + light/dark) persisted to localStorage
    - Sticky nav state + reading progress rail
    - IntersectionObserver-based reveal animations
@@ -213,7 +213,7 @@
      so the SVG translates with scroll and (subtly) follows the cursor.
      Skipped entirely for reduced-motion or coarse pointers.
      --------------------------------------------------------- */
-  const contour = document.querySelector('.hero__bg-constellation, .hero__bg-contours');
+  const contour = document.querySelector('.hero__bg-contours');
   if (contour && !prefersReducedMotion) {
     const hero = document.querySelector('.hero');
     let scrollY = 0, mouseX = 0, mouseY = 0;

@@ -98,7 +98,7 @@ html[data-theme="C"] .nav__links {
 
 /* --- Hero -------------------------------------------------- */
 html[data-theme="C"] .hero { min-height: 88vh; }
-html[data-theme="C"] .hero__bg-constellation { display: none; }
+html[data-theme="C"] .hero__bg-contours { display: none; }
 html[data-theme="C"] .hero__bg-grain {
   background:
     radial-gradient(900px 600px at 100% 0%, rgba(37, 99, 235, 0.05), transparent 60%);
