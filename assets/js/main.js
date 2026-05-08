@@ -1,5 +1,5 @@
 /* =============================================================
-   EnterAtlas — main.js
+   Atlas Cosmo — main.js
    - Theme switcher (A–G + light/dark) persisted to localStorage
    - Sticky nav state + reading progress rail
    - IntersectionObserver-based reveal animations
@@ -20,7 +20,7 @@
      --------------------------------------------------------- */
   const root = document.documentElement;
   const THEMES = {
-    G: 'Cosmic Atlas',
+    G: 'Atlas Cosmo',
     A: 'Editorial',
     B: 'Aspirational',
     C: 'Institutional',
@@ -49,7 +49,7 @@
     const setTheme = (theme) => {
       if (!THEMES[theme]) return;
       root.setAttribute('data-theme', theme);
-      try { localStorage.setItem('enteratlas:theme', theme); } catch(e) {}
+      try { localStorage.setItem('atlascosmo:theme', theme); } catch(e) {}
       renderActive(theme);
     };
 
@@ -121,7 +121,7 @@
     const applyMode = (mode, persist) => {
       root.setAttribute('data-mode', mode);
       if (persist) {
-        try { localStorage.setItem('enteratlas:mode', mode); } catch(e) {}
+        try { localStorage.setItem('atlascosmo:mode', mode); } catch(e) {}
       }
       modeToggle.setAttribute('aria-label',
         mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
